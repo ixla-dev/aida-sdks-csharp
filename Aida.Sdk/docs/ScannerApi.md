@@ -12,8 +12,8 @@ All URIs are relative to *http://localhost*
 | [**AidaV1ScannerPost**](ScannerApi.md#aidav1scannerpost) | **POST** /aida/v1/scanner |  |
 | [**AlignEntities**](ScannerApi.md#alignentities) | **POST** /aida/v1/scanner/transform/align-entities |  |
 | [**ApplyOffsetsFromConfig**](ScannerApi.md#applyoffsetsfromconfig) | **POST** /aida/v1/scanner/apply-offsets-from-config |  |
-| [**AssignInkjetLayoutToJobTemplate**](ScannerApi.md#assigninkjetlayouttojobtemplate) | **POST** /aida/v1/scanner/job-template/{jobTemplateId}/{supportSide}/{inkjetLayoutId} |  |
-| [**AssignInkjetLayoutsToJobTemplate**](ScannerApi.md#assigninkjetlayoutstojobtemplate) | **POST** /aida/v1/scanner/job-template/{id}/inkjetlayouts |  |
+| [**AssignInkjetLayoutToJobTemplate**](ScannerApi.md#assigninkjetlayouttojobtemplate) | **POST** /aida/v1/scanner/job-template/inkjet/{jobTemplateId}/{supportSide}/{inkjetLayoutId} |  |
+| [**AssignInkjetLayoutsToJobTemplate**](ScannerApi.md#assigninkjetlayoutstojobtemplate) | **POST** /aida/v1/scanner/job-template/inkjet/{id}/inkjetlayouts |  |
 | [**AssignLayoutToJobTemplate**](ScannerApi.md#assignlayouttojobtemplate) | **POST** /aida/v1/scanner/job-template/{jobTemplateId}/{supportSide}/{layoutId} |  |
 | [**AssignLayoutsToJobTemplate**](ScannerApi.md#assignlayoutstojobtemplate) | **POST** /aida/v1/scanner/job-template/{id}/layouts |  |
 | [**AssignWebHookTarget**](ScannerApi.md#assignwebhooktarget) | **POST** /aida/v1/scanner/job-template/{id}/webhooks-target |  |
@@ -74,7 +74,7 @@ All URIs are relative to *http://localhost*
 | [**GetLayoutStoreSettings**](ScannerApi.md#getlayoutstoresettings) | **GET** /aida/v1/scanner/layouts/settings |  |
 | [**GetPixelMapForPen**](ScannerApi.md#getpixelmapforpen) | **GET** /aida/v1/scanner/pens/{id}/pixel-map |  |
 | [**GetPreview**](ScannerApi.md#getpreview) | **GET** /aida/v1/scanner/preview.jpg |  |
-| [**GetPrintSettings**](ScannerApi.md#getprintsettings) | **GET** /aida/v1/scanner/print-settings/{id} |  |
+| [**GetPrintSettings**](ScannerApi.md#getprintsettings) | **GET** /aida/v1/scanner/inkjet/print-settings/{id} |  |
 | [**GetSamLightOptions**](ScannerApi.md#getsamlightoptions) | **GET** /aida/v1/scanner/settings |  |
 | [**GetSnapshot**](ScannerApi.md#getsnapshot) | **GET** /aida/v1/scanner/camera/get-snapshot |  |
 | [**GetSnapshotImage**](ScannerApi.md#getsnapshotimage) | **GET** /aida/v1/scanner/camera/get-snapshot.{format} |  |
@@ -104,7 +104,7 @@ All URIs are relative to *http://localhost*
 | [**MoveAbs**](ScannerApi.md#moveabs) | **POST** /aida/v1/scanner/move-abs |  |
 | [**MoveTo**](ScannerApi.md#moveto) | **POST** /aida/v1/scanner/transform/move-to |  |
 | [**RebuildSjfFile**](ScannerApi.md#rebuildsjffile) | **POST** /aida/v1/scanner/job-template/{id}/rebuild-job-file |  |
-| [**RemoveInkjetLayoutFromJobTemplate**](ScannerApi.md#removeinkjetlayoutfromjobtemplate) | **DELETE** /aida/v1/scanner/job-template/{jobTemplateId}/{supportSide}/{inkjetLayoutId} |  |
+| [**RemoveInkjetLayoutFromJobTemplate**](ScannerApi.md#removeinkjetlayoutfromjobtemplate) | **DELETE** /aida/v1/scanner/job-template/inkjet/{jobTemplateId}/{supportSide}/{inkjetLayoutId} |  |
 | [**RemoveLayoutFromJobTemplate**](ScannerApi.md#removelayoutfromjobtemplate) | **DELETE** /aida/v1/scanner/job-template/{jobTemplateId}/{supportSide}/{layoutId} |  |
 | [**RemoveMarkGroups**](ScannerApi.md#removemarkgroups) | **DELETE** /aida/v1/scanner/job-templates/{id}/mark-groups |  |
 | [**RemoveWebhooksTarget**](ScannerApi.md#removewebhookstarget) | **DELETE** /aida/v1/scanner/job-template/{id}/webhooks-target |  |

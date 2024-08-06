@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 | [**GetSystemStatus**](SystemApi.md#getsystemstatus) | **GET** /aida/v1/system/status |  |
 | [**SetSystemModel**](SystemApi.md#setsystemmodel) | **POST** /aida/v1/system/set-system-model |  |
 | [**SetSystemSerial**](SystemApi.md#setsystemserial) | **POST** /aida/v1/system/set-system-serial |  |
-| [**SystemReset**](SystemApi.md#systemreset) | **GET** /aida/v1/system/reset |  |
+| [**SystemReset**](SystemApi.md#systemreset) | **POST** /aida/v1/system/reset |  |
 
 <a id="getsystemmodel"></a>
 # **GetSystemModel**

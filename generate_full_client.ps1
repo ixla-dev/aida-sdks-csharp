@@ -3,8 +3,8 @@
   The output directory that will contain the generated solution 
 
   .PARAMETER GeneratorConfigFilePath 
-  The path of a JSON file containing the configuration for the openapi-generator-cli csharp-netcore generator. For a comprehensive list of
-  parameters see https://openapi-generator.tech/docs/generators/csharp-netcore/
+  The path of a JSON file containing the configuration for the openapi-generator-cli csharp generator. For a comprehensive list of
+  parameters see https://openapi-generator.tech/docs/generators/csharp/
 
   .PARAMETER OpenApiSpecUri 
   The URL or file path of an open-api specification. 

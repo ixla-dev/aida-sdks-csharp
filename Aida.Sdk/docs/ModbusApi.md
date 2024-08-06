@@ -6,7 +6,7 @@ All URIs are relative to *http://localhost*
 |--------|--------------|-------------|
 | [**GetModbusClients**](ModbusApi.md#getmodbusclients) | **GET** /aida/v1/modbus/clients |  |
 | [**ReadHoldingRegisters**](ModbusApi.md#readholdingregisters) | **POST** /aida/v1/modbus/{port}/read-holding-registers |  |
-| [**WriteSingleRegister**](ModbusApi.md#writesingleregister) | **POST** /aida/v1/modbus/{port}/write-single-register |  |
+| [**WriteSingleRegister**](ModbusApi.md#writesingleregister) | **POST** /aida/v1/modbus/{port}/{slaveId}/registers/{address} |  |
 
 <a id="getmodbusclients"></a>
 # **GetModbusClients**
@@ -187,7 +187,7 @@ void (empty response body)
 
 <a id="writesingleregister"></a>
 # **WriteSingleRegister**
-> void WriteSingleRegister (string port, string body = null)
+> void WriteSingleRegister (string port, string slaveId, string address, string value = null)
 
 
 
@@ -216,11 +216,13 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ModbusApi(httpClient, config, httpClientHandler);
             var port = "port_example";  // string | 
-            var body = "body_example";  // string |  (optional) 
+            var slaveId = "slaveId_example";  // string | 
+            var address = "address_example";  // string | 
+            var value = "value_example";  // string |  (optional) 
 
             try
             {
-                apiInstance.WriteSingleRegister(port, body);
+                apiInstance.WriteSingleRegister(port, slaveId, address, value);
             }
             catch (ApiException  e)
             {
@@ -239,7 +241,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    apiInstance.WriteSingleRegisterWithHttpInfo(port, body);
+    apiInstance.WriteSingleRegisterWithHttpInfo(port, slaveId, address, value);
 }
 catch (ApiException e)
 {
@@ -254,7 +256,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **port** | **string** |  |  |
-| **body** | **string** |  | [optional]  |
+| **slaveId** | **string** |  |  |
+| **address** | **string** |  |  |
+| **value** | **string** |  | [optional]  |
 
 ### Return type
 
@@ -266,7 +270,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 

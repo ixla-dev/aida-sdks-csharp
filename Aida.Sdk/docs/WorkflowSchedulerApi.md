@@ -15,10 +15,12 @@ All URIs are relative to *http://localhost*
 | [**GetMetrics**](WorkflowSchedulerApi.md#getmetrics) | **GET** /aida/v1/workflow-scheduler/metrics |  |
 | [**GetNamedLock**](WorkflowSchedulerApi.md#getnamedlock) | **GET** /aida/v1/workflow-scheduler/named-locks/{resourceName} |  |
 | [**GetQueuedJobs**](WorkflowSchedulerApi.md#getqueuedjobs) | **GET** /aida/v1/workflow-scheduler/queued-jobs |  |
+| [**GetResumeItems**](WorkflowSchedulerApi.md#getresumeitems) | **GET** /aida/v1/workflow-scheduler/resume-items |  |
 | [**GetRunningWorkflowIds**](WorkflowSchedulerApi.md#getrunningworkflowids) | **GET** /aida/v1/workflow-scheduler/workflow-instances/running |  |
 | [**GetRunningWorkflows**](WorkflowSchedulerApi.md#getrunningworkflows) | **GET** /aida/v1/workflow-scheduler/workflows/running |  |
 | [**GetSuspendedWorkflows**](WorkflowSchedulerApi.md#getsuspendedworkflows) | **GET** /aida/v1/workflow-scheduler/workflow-instances/suspended |  |
 | [**GetWorkflowBlueprints**](WorkflowSchedulerApi.md#getworkflowblueprints) | **GET** /aida/v1/workflow-scheduler/workflow-blueprints |  |
+| [**GetWorkflowContextByWorkflowInstanceId**](WorkflowSchedulerApi.md#getworkflowcontextbyworkflowinstanceid) | **GET** /aida/v1/workflow-scheduler/workflows/{workflowInstanceId}/context |  |
 | [**GetWorkflowInstances**](WorkflowSchedulerApi.md#getworkflowinstances) | **GET** /aida/v1/workflow-scheduler/workflow-instances |  |
 | [**GetWorkflowRegistry**](WorkflowSchedulerApi.md#getworkflowregistry) | **GET** /aida/v1/workflow-scheduler/workflow-registry |  |
 | [**GetWorkflowSchedulerState**](WorkflowSchedulerApi.md#getworkflowschedulerstate) | **GET** /aida/v1/workflow-scheduler/state |  |
@@ -1028,6 +1030,95 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="getresumeitems"></a>
+# **GetResumeItems**
+> List&lt;ResumeItem&gt; GetResumeItems ()
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Api;
+using Aida.Sdk.Client;
+using Aida.Sdk.Model;
+
+namespace Example
+{
+    public class GetResumeItemsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorkflowSchedulerApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                List<ResumeItem> result = apiInstance.GetResumeItems();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling WorkflowSchedulerApi.GetResumeItems: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetResumeItemsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<List<ResumeItem>> response = apiInstance.GetResumeItemsWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorkflowSchedulerApi.GetResumeItemsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**List&lt;ResumeItem&gt;**](ResumeItem.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="getrunningworkflowids"></a>
 # **GetRunningWorkflowIds**
 > List&lt;string&gt; GetRunningWorkflowIds ()
@@ -1375,6 +1466,96 @@ This endpoint does not need any parameter.
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getworkflowcontextbyworkflowinstanceid"></a>
+# **GetWorkflowContextByWorkflowInstanceId**
+> void GetWorkflowContextByWorkflowInstanceId (string workflowInstanceId)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Api;
+using Aida.Sdk.Client;
+using Aida.Sdk.Model;
+
+namespace Example
+{
+    public class GetWorkflowContextByWorkflowInstanceIdExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new WorkflowSchedulerApi(httpClient, config, httpClientHandler);
+            var workflowInstanceId = "workflowInstanceId_example";  // string | 
+
+            try
+            {
+                apiInstance.GetWorkflowContextByWorkflowInstanceId(workflowInstanceId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling WorkflowSchedulerApi.GetWorkflowContextByWorkflowInstanceId: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetWorkflowContextByWorkflowInstanceIdWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    apiInstance.GetWorkflowContextByWorkflowInstanceIdWithHttpInfo(workflowInstanceId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling WorkflowSchedulerApi.GetWorkflowContextByWorkflowInstanceIdWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **workflowInstanceId** | **string** |  |  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 
 ### HTTP response details

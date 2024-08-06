@@ -20,6 +20,7 @@ All URIs are relative to *http://localhost*
 | [**GetAssignedLayoutsByJobTemplateId**](IntegrationApi.md#getassignedlayoutsbyjobtemplateid) | **GET** /aida/v1/scanner/job-templates/{id}/layouts/assigned |  |
 | [**GetDataExchangeTableDefinition**](IntegrationApi.md#getdataexchangetabledefinition) | **GET** /aida/v1/etl/{jobId}/exchange-table-ddl |  |
 | [**GetEntityDescriptorsByJobTemplateId**](IntegrationApi.md#getentitydescriptorsbyjobtemplateid) | **GET** /aida/v1/etl/{jobId}/entities |  |
+| [**GetJobInstances**](IntegrationApi.md#getjobinstances) | **GET** /aida/v1/workflows/job-instances |  |
 | [**GetJobTemplateById**](IntegrationApi.md#getjobtemplatebyid) | **GET** /aida/v1/scanner/job-templates/{id} |  |
 | [**GetLayoutById**](IntegrationApi.md#getlayoutbyid) | **GET** /aida/v1/scanner/layouts/{id} |  |
 | [**GetMetrics**](IntegrationApi.md#getmetrics) | **GET** /aida/v1/workflow-scheduler/metrics |  |
@@ -45,7 +46,7 @@ All URIs are relative to *http://localhost*
 | [**SmartCardReconnect**](IntegrationApi.md#smartcardreconnect) | **POST** /api/v1/pcsc-gateway/{readerIndex}/smart-card/reconnect | Invoke SCardReconnect on the specified reader |
 | [**StartWorkflowScheduler**](IntegrationApi.md#startworkflowscheduler) | **POST** /aida/v1/workflow-scheduler/start |  |
 | [**StopWorkflowScheduler**](IntegrationApi.md#stopworkflowscheduler) | **POST** /aida/v1/workflow-scheduler/stop |  |
-| [**SystemReset**](IntegrationApi.md#systemreset) | **GET** /aida/v1/system/reset |  |
+| [**SystemReset**](IntegrationApi.md#systemreset) | **POST** /aida/v1/system/reset |  |
 | [**TestWebhookTarget**](IntegrationApi.md#testwebhooktarget) | **POST** /aida/v1/webhooks-targets/{id} |  |
 | [**Transmit**](IntegrationApi.md#transmit) | **POST** /api/v1/pcsc-gateway/{readerIndex}/smart-card/transmit | Invoke SCardTransmit on the specified reader |
 | [**UpdateWebhooksTarget**](IntegrationApi.md#updatewebhookstarget) | **PUT** /aida/v1/webhooks-targets |  |
@@ -1598,6 +1599,108 @@ catch (ApiException e)
 ### Return type
 
 [**List&lt;EntityDescriptor&gt;**](EntityDescriptor.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getjobinstances"></a>
+# **GetJobInstances**
+> List&lt;JobInstance&gt; GetJobInstances (int? page = null, int? pageSize = null, string query = null, string sortCriteriaPropertyName = null, SortDirection? sortCriteriaDirection = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Mini.Api;
+using Aida.Sdk.Mini.Client;
+using Aida.Sdk.Mini.Model;
+
+namespace Example
+{
+    public class GetJobInstancesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new IntegrationApi(httpClient, config, httpClientHandler);
+            var page = 56;  // int? |  (optional) 
+            var pageSize = 56;  // int? |  (optional) 
+            var query = "query_example";  // string |  (optional) 
+            var sortCriteriaPropertyName = "sortCriteriaPropertyName_example";  // string |  (optional) 
+            var sortCriteriaDirection = (SortDirection) "Ascending";  // SortDirection? |  (optional) 
+
+            try
+            {
+                List<JobInstance> result = apiInstance.GetJobInstances(page, pageSize, query, sortCriteriaPropertyName, sortCriteriaDirection);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.GetJobInstances: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetJobInstancesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<List<JobInstance>> response = apiInstance.GetJobInstancesWithHttpInfo(page, pageSize, query, sortCriteriaPropertyName, sortCriteriaDirection);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling IntegrationApi.GetJobInstancesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **page** | **int?** |  | [optional]  |
+| **pageSize** | **int?** |  | [optional]  |
+| **query** | **string** |  | [optional]  |
+| **sortCriteriaPropertyName** | **string** |  | [optional]  |
+| **sortCriteriaDirection** | **SortDirection?** |  | [optional]  |
+
+### Return type
+
+[**List&lt;JobInstance&gt;**](JobInstance.md)
 
 ### Authorization
 

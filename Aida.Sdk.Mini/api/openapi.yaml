@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  description: 1.0.700.1
+  description: 1.0.703.1
   title: aida-mini
-  version: 1.0.700.1
+  version: 1.0.703.1
 servers:
 - url: /
 security:
@@ -600,6 +600,68 @@ paths:
       summary: Invoke SCardDisconnect on the specified reader
       tags:
       - Integration
+  /aida/v1/workflows/job-instances:
+    get:
+      operationId: GetJobInstances
+      parameters:
+      - explode: true
+        in: query
+        name: Page
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: PageSize
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: Query
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: SortCriteria.PropertyName
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: SortCriteria.Direction
+        required: false
+        schema:
+          $ref: '#/components/schemas/SortDirection'
+        style: form
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/JobInstance'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/JobInstance'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/JobInstance'
+                type: array
+          description: Success
+      tags:
+      - Integration
   /aida/v1/scanner/job-templates:
     get:
       operationId: FindJobTemplates
@@ -1190,32 +1252,16 @@ paths:
   /aida/v1/scanner/layouts/upload:
     post:
       operationId: UploadLayoutFile
-      parameters:
-      - explode: true
-        in: query
-        name: layoutName
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: supportSide
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: scannerId
-        required: false
-        schema:
-          type: string
-        style: form
       requestBody:
         content:
           multipart/form-data:
             encoding:
+              layoutName:
+                style: form
+              supportSide:
+                style: form
+              scannerId:
+                style: form
               files:
                 style: form
             schema:
@@ -1236,7 +1282,7 @@ paths:
       tags:
       - Integration
   /aida/v1/system/reset:
-    get:
+    post:
       operationId: SystemReset
       responses:
         "200":
@@ -12966,6 +13012,12 @@ components:
       type: string
     UploadLayoutFile_request:
       properties:
+        layoutName:
+          type: string
+        supportSide:
+          type: string
+        scannerId:
+          type: string
         files:
           items:
             format: binary

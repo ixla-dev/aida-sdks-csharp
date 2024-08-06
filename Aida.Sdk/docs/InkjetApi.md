@@ -6,16 +6,18 @@ All URIs are relative to *http://localhost*
 |--------|--------------|-------------|
 | [**AddEntityToInkjetLayout**](InkjetApi.md#addentitytoinkjetlayout) | **POST** /aida/v1/inkjet/layouts/{inkjetLayoutId}/add-entity |  |
 | [**AidaV1InkjetLoadTestImagePost**](InkjetApi.md#aidav1inkjetloadtestimagepost) | **POST** /aida/v1/inkjet/load-test-image |  |
+| [**AidaV1InkjetLogerrorIdPut**](InkjetApi.md#aidav1inkjetlogerroridput) | **PUT** /aida/v1/inkjet/logerror/{id} |  |
+| [**AidaV1InkjetLogerrorPost**](InkjetApi.md#aidav1inkjetlogerrorpost) | **POST** /aida/v1/inkjet/logerror |  |
 | [**AidaV1InkjetPrintStatusGet**](InkjetApi.md#aidav1inkjetprintstatusget) | **GET** /aida/v1/inkjet/print-status |  |
 | [**AidaV1InkjetPrintheadMoveToPrintareaPost**](InkjetApi.md#aidav1inkjetprintheadmovetoprintareapost) | **POST** /aida/v1/inkjet/printhead/move-to-printarea |  |
 | [**AidaV1InkjetSetPrintheadOffsetPost**](InkjetApi.md#aidav1inkjetsetprintheadoffsetpost) | **POST** /aida/v1/inkjet/set-printhead-offset |  |
 | [**AidaV1InkjetStartCyclePost**](InkjetApi.md#aidav1inkjetstartcyclepost) | **POST** /aida/v1/inkjet/start-cycle |  |
 | [**AidaV1InkjetStartPrintPost**](InkjetApi.md#aidav1inkjetstartprintpost) | **POST** /aida/v1/inkjet/start-print |  |
 | [**CanPrint**](InkjetApi.md#canprint) | **GET** /aida/v1/inkjet/can-print |  |
+| [**CloseJob**](InkjetApi.md#closejob) | **POST** /aida/v1/inkjet/shingling-close-job |  |
 | [**CreateInkjetLayout**](InkjetApi.md#createinkjetlayout) | **POST** /aida/v1/inkjet/layouts/create/{inkjetLayoutName} |  |
 | [**CreateNewJob**](InkjetApi.md#createnewjob) | **POST** /aida/v1/inkjet/board/create-new-job |  |
 | [**DeleteInkjetLayout**](InkjetApi.md#deleteinkjetlayout) | **DELETE** /aida/v1/inkjet/layouts/{id} |  |
-| [**DisablePrint**](InkjetApi.md#disableprint) | **POST** /aida/v1/inkjet/board/disable-print |  |
 | [**EnablePrint**](InkjetApi.md#enableprint) | **POST** /aida/v1/inkjet/board/enable-print |  |
 | [**FindInkjetLayouts**](InkjetApi.md#findinkjetlayouts) | **GET** /aida/v1/inkjet/layouts/find |  |
 | [**GetActiveEntities**](InkjetApi.md#getactiveentities) | **GET** /aida/v1/inkjet/active-entities |  |
@@ -35,11 +37,13 @@ All URIs are relative to *http://localhost*
 | [**IsMultiPrintRunning**](InkjetApi.md#ismultiprintrunning) | **GET** /aida/v1/inkjet/settings/is-multi-print-running |  |
 | [**IsPrinting**](InkjetApi.md#isprinting) | **GET** /aida/v1/inkjet/board/is-printing |  |
 | [**IsReady**](InkjetApi.md#isready) | **GET** /aida/v1/inkjet/board/is-ready |  |
+| [**JobInsertImage**](InkjetApi.md#jobinsertimage) | **POST** /aida/v1/inkjet/shingling-load-image |  |
 | [**LoadInkjetLayout**](InkjetApi.md#loadinkjetlayout) | **POST** /aida/v1/inkjet/layouts/{inkjetLayoutId}/load |  |
 | [**LoadTestImage**](InkjetApi.md#loadtestimage) | **GET** /aida/v1/inkjet/load-test-image |  |
 | [**MoveHeadToCapping**](InkjetApi.md#moveheadtocapping) | **POST** /aida/v1/inkjet/cleaning/move-to-capping |  |
 | [**MoveHeadToMaintenance**](InkjetApi.md#moveheadtomaintenance) | **POST** /aida/v1/inkjet/cleaning/move-to-maintenance |  |
 | [**MoveHeadToParking**](InkjetApi.md#moveheadtoparking) | **POST** /aida/v1/inkjet/cleaning/move-to-parking |  |
+| [**NewJob**](InkjetApi.md#newjob) | **POST** /aida/v1/inkjet/shingling-new-job |  |
 | [**NozzleCheck**](InkjetApi.md#nozzlecheck) | **POST** /aida/v1/inkjet/nozzle-check | Executes nozzle check by printing a 800x1000 image  With all channels enabled + CMYK Direct |
 | [**PerformDeepCleaning**](InkjetApi.md#performdeepcleaning) | **POST** /aida/v1/inkjet/cleaning/perform-deep-cleaning |  |
 | [**PerformLightCleaning**](InkjetApi.md#performlightcleaning) | **POST** /aida/v1/inkjet/cleaning/perform-light-cleaning |  |
@@ -61,6 +65,7 @@ All URIs are relative to *http://localhost*
 | [**SetPrintSettings**](InkjetApi.md#setprintsettings) | **POST** /aida/v1/inkjet/settings/print-settings |  |
 | [**StartMultiPrint**](InkjetApi.md#startmultiprint) | **POST** /aida/v1/inkjet/settings/multi-print-start |  |
 | [**StopMultiPrint**](InkjetApi.md#stopmultiprint) | **POST** /aida/v1/inkjet/settings/multi-print-stop |  |
+| [**StopPrint**](InkjetApi.md#stopprint) | **POST** /aida/v1/inkjet/stop-print |  |
 | [**Test**](InkjetApi.md#test) | **GET** /aida/v1/inkjet/test |  |
 | [**ToggleCapping**](InkjetApi.md#togglecapping) | **POST** /aida/v1/inkjet/cleaning/toggle-capping |  |
 | [**ToggleCappingPump**](InkjetApi.md#togglecappingpump) | **POST** /aida/v1/inkjet/cleaning/toggle-capping-pump |  |
@@ -240,6 +245,188 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="aidav1inkjetlogerroridput"></a>
+# **AidaV1InkjetLogerrorIdPut**
+> void AidaV1InkjetLogerrorIdPut (Guid id, AidaLogEntry aidaLogEntry = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Api;
+using Aida.Sdk.Client;
+using Aida.Sdk.Model;
+
+namespace Example
+{
+    public class AidaV1InkjetLogerrorIdPutExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InkjetApi(httpClient, config, httpClientHandler);
+            var id = "id_example";  // Guid | 
+            var aidaLogEntry = new AidaLogEntry(); // AidaLogEntry |  (optional) 
+
+            try
+            {
+                apiInstance.AidaV1InkjetLogerrorIdPut(id, aidaLogEntry);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InkjetApi.AidaV1InkjetLogerrorIdPut: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AidaV1InkjetLogerrorIdPutWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    apiInstance.AidaV1InkjetLogerrorIdPutWithHttpInfo(id, aidaLogEntry);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InkjetApi.AidaV1InkjetLogerrorIdPutWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** |  |  |
+| **aidaLogEntry** | [**AidaLogEntry**](AidaLogEntry.md) |  | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="aidav1inkjetlogerrorpost"></a>
+# **AidaV1InkjetLogerrorPost**
+> void AidaV1InkjetLogerrorPost (AidaLogEntry aidaLogEntry = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Api;
+using Aida.Sdk.Client;
+using Aida.Sdk.Model;
+
+namespace Example
+{
+    public class AidaV1InkjetLogerrorPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InkjetApi(httpClient, config, httpClientHandler);
+            var aidaLogEntry = new AidaLogEntry(); // AidaLogEntry |  (optional) 
+
+            try
+            {
+                apiInstance.AidaV1InkjetLogerrorPost(aidaLogEntry);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InkjetApi.AidaV1InkjetLogerrorPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AidaV1InkjetLogerrorPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    apiInstance.AidaV1InkjetLogerrorPostWithHttpInfo(aidaLogEntry);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InkjetApi.AidaV1InkjetLogerrorPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **aidaLogEntry** | [**AidaLogEntry**](AidaLogEntry.md) |  | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 
@@ -785,6 +972,91 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="closejob"></a>
+# **CloseJob**
+> void CloseJob ()
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Api;
+using Aida.Sdk.Client;
+using Aida.Sdk.Model;
+
+namespace Example
+{
+    public class CloseJobExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InkjetApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                apiInstance.CloseJob();
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InkjetApi.CloseJob: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CloseJobWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    apiInstance.CloseJobWithHttpInfo();
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InkjetApi.CloseJobWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="createinkjetlayout"></a>
 # **CreateInkjetLayout**
 > int CreateInkjetLayout (string inkjetLayoutName)
@@ -1033,91 +1305,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **int** |  |  |
 
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="disableprint"></a>
-# **DisablePrint**
-> void DisablePrint ()
-
-
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Aida.Sdk.Api;
-using Aida.Sdk.Client;
-using Aida.Sdk.Model;
-
-namespace Example
-{
-    public class DisablePrintExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new InkjetApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                apiInstance.DisablePrint();
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling InkjetApi.DisablePrint: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the DisablePrintWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    apiInstance.DisablePrintWithHttpInfo();
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling InkjetApi.DisablePrintWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
 ### Return type
 
 void (empty response body)
@@ -2848,6 +3035,102 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="jobinsertimage"></a>
+# **JobInsertImage**
+> void JobInsertImage (string imagePath = null, int? angle = null, int? x = null, int? y = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Api;
+using Aida.Sdk.Client;
+using Aida.Sdk.Model;
+
+namespace Example
+{
+    public class JobInsertImageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InkjetApi(httpClient, config, httpClientHandler);
+            var imagePath = "imagePath_example";  // string |  (optional) 
+            var angle = 56;  // int? |  (optional) 
+            var x = 56;  // int? |  (optional) 
+            var y = 56;  // int? |  (optional) 
+
+            try
+            {
+                apiInstance.JobInsertImage(imagePath, angle, x, y);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InkjetApi.JobInsertImage: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the JobInsertImageWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    apiInstance.JobInsertImageWithHttpInfo(imagePath, angle, x, y);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InkjetApi.JobInsertImageWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **imagePath** | **string** |  | [optional]  |
+| **angle** | **int?** |  | [optional]  |
+| **x** | **int?** |  | [optional]  |
+| **y** | **int?** |  | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="loadinkjetlayout"></a>
 # **LoadInkjetLayout**
 > void LoadInkjetLayout (int inkjetLayoutId)
@@ -3266,6 +3549,96 @@ catch (ApiException e)
 
 ### Parameters
 This endpoint does not need any parameter.
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="newjob"></a>
+# **NewJob**
+> void NewJob (string imagePath = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Api;
+using Aida.Sdk.Client;
+using Aida.Sdk.Model;
+
+namespace Example
+{
+    public class NewJobExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InkjetApi(httpClient, config, httpClientHandler);
+            var imagePath = "imagePath_example";  // string |  (optional) 
+
+            try
+            {
+                apiInstance.NewJob(imagePath);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InkjetApi.NewJob: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the NewJobWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    apiInstance.NewJobWithHttpInfo(imagePath);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InkjetApi.NewJobWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **imagePath** | **string** |  | [optional]  |
+
 ### Return type
 
 void (empty response body)
@@ -3919,7 +4292,7 @@ void (empty response body)
 
 <a id="print"></a>
 # **Print**
-> void Print (int? offsetX = null, int? offsetY = null, int? pageId = null, int? printSettingsId = null, PrintCycleModes? printCycle = null)
+> void Print (int? offsetX = null, int? offsetY = null, int? pageId = null, int? printSettingsId = null, int? passes = null, PrintCycleModes? printCycle = null)
 
 Handles the print process sending commands to APRINT for loading  and transferring images to the printhead manager board and moves  the axis to trigger the actual print of images
 
@@ -3951,12 +4324,13 @@ namespace Example
             var offsetY = 56;  // int? |  (optional) 
             var pageId = 56;  // int? |  (optional) 
             var printSettingsId = 56;  // int? |  (optional) 
+            var passes = 56;  // int? |  (optional) 
             var printCycle = (PrintCycleModes) "PrintAndLaser";  // PrintCycleModes? |  (optional) 
 
             try
             {
                 // Handles the print process sending commands to APRINT for loading  and transferring images to the printhead manager board and moves  the axis to trigger the actual print of images
-                apiInstance.Print(offsetX, offsetY, pageId, printSettingsId, printCycle);
+                apiInstance.Print(offsetX, offsetY, pageId, printSettingsId, passes, printCycle);
             }
             catch (ApiException  e)
             {
@@ -3976,7 +4350,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Handles the print process sending commands to APRINT for loading  and transferring images to the printhead manager board and moves  the axis to trigger the actual print of images
-    apiInstance.PrintWithHttpInfo(offsetX, offsetY, pageId, printSettingsId, printCycle);
+    apiInstance.PrintWithHttpInfo(offsetX, offsetY, pageId, printSettingsId, passes, printCycle);
 }
 catch (ApiException e)
 {
@@ -3994,6 +4368,7 @@ catch (ApiException e)
 | **offsetY** | **int?** |  | [optional]  |
 | **pageId** | **int?** |  | [optional]  |
 | **printSettingsId** | **int?** |  | [optional]  |
+| **passes** | **int?** |  | [optional]  |
 | **printCycle** | **PrintCycleModes?** |  | [optional]  |
 
 ### Return type
@@ -5193,6 +5568,91 @@ try
 catch (ApiException e)
 {
     Debug.Print("Exception when calling InkjetApi.StopMultiPrintWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="stopprint"></a>
+# **StopPrint**
+> void StopPrint ()
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Api;
+using Aida.Sdk.Client;
+using Aida.Sdk.Model;
+
+namespace Example
+{
+    public class StopPrintExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InkjetApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                apiInstance.StopPrint();
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InkjetApi.StopPrint: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the StopPrintWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    apiInstance.StopPrintWithHttpInfo();
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InkjetApi.StopPrintWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

@@ -5,6 +5,7 @@ README.md
 api/openapi.yaml
 appveyor.yml
 docs/AddDataSourceConfiguration200Response.md
+docs/AidaLogEntry.md
 docs/AidaUserDto.md
 docs/AlignEntitiesDto.md
 docs/AlignReference.md
@@ -114,6 +115,7 @@ docs/JobErrorCodes.md
 docs/JobInstance.md
 docs/JobInstanceDto.md
 docs/JobStatus.md
+docs/JobTemplateApi.md
 docs/JobTemplateAuditEntryDto.md
 docs/JobTemplateDto.md
 docs/JobTemplateInkjetLayoutDto.md
@@ -212,6 +214,7 @@ docs/ReaderInterfaceType.md
 docs/RectTransformOrigin.md
 docs/Rectangle.md
 docs/RectangleDto.md
+docs/ResumeItem.md
 docs/RotateEntitiesDto.md
 docs/RuntimeMetrics.md
 docs/RuntimeOcrInspectionResult.md
@@ -355,6 +358,7 @@ src/Aida.Sdk.Test/Api/FilesApiTests.cs
 src/Aida.Sdk.Test/Api/HealthCheckApiTests.cs
 src/Aida.Sdk.Test/Api/HelloWorldApiTests.cs
 src/Aida.Sdk.Test/Api/InkjetApiTests.cs
+src/Aida.Sdk.Test/Api/JobTemplateApiTests.cs
 src/Aida.Sdk.Test/Api/LampApiTests.cs
 src/Aida.Sdk.Test/Api/LaserBoardApiTests.cs
 src/Aida.Sdk.Test/Api/LogApiTests.cs
@@ -373,6 +377,7 @@ src/Aida.Sdk.Test/Api/TransportApiTests.cs
 src/Aida.Sdk.Test/Api/WebhooksTargetsApiTests.cs
 src/Aida.Sdk.Test/Api/WorkflowSchedulerApiTests.cs
 src/Aida.Sdk.Test/Model/AddDataSourceConfiguration200ResponseTests.cs
+src/Aida.Sdk.Test/Model/AidaLogEntryTests.cs
 src/Aida.Sdk.Test/Model/AidaUserDtoTests.cs
 src/Aida.Sdk.Test/Model/AlignEntitiesDtoTests.cs
 src/Aida.Sdk.Test/Model/AlignReferenceTests.cs
@@ -555,6 +560,7 @@ src/Aida.Sdk.Test/Model/ReaderInterfaceTypeTests.cs
 src/Aida.Sdk.Test/Model/RectTransformOriginTests.cs
 src/Aida.Sdk.Test/Model/RectangleDtoTests.cs
 src/Aida.Sdk.Test/Model/RectangleTests.cs
+src/Aida.Sdk.Test/Model/ResumeItemTests.cs
 src/Aida.Sdk.Test/Model/RotateEntitiesDtoTests.cs
 src/Aida.Sdk.Test/Model/RuntimeMetricsTests.cs
 src/Aida.Sdk.Test/Model/RuntimeOcrInspectionResultTests.cs
@@ -690,6 +696,7 @@ src/Aida.Sdk/Api/FilesApi.cs
 src/Aida.Sdk/Api/HealthCheckApi.cs
 src/Aida.Sdk/Api/HelloWorldApi.cs
 src/Aida.Sdk/Api/InkjetApi.cs
+src/Aida.Sdk/Api/JobTemplateApi.cs
 src/Aida.Sdk/Api/LampApi.cs
 src/Aida.Sdk/Api/LaserBoardApi.cs
 src/Aida.Sdk/Api/LogApi.cs
@@ -726,6 +733,7 @@ src/Aida.Sdk/Client/RetryConfiguration.cs
 src/Aida.Sdk/Client/WebRequestPathBuilder.cs
 src/Aida.Sdk/Model/AbstractOpenAPISchema.cs
 src/Aida.Sdk/Model/AddDataSourceConfiguration200Response.cs
+src/Aida.Sdk/Model/AidaLogEntry.cs
 src/Aida.Sdk/Model/AidaUserDto.cs
 src/Aida.Sdk/Model/AlignEntitiesDto.cs
 src/Aida.Sdk/Model/AlignReference.cs
@@ -908,6 +916,7 @@ src/Aida.Sdk/Model/ReaderInterfaceType.cs
 src/Aida.Sdk/Model/RectTransformOrigin.cs
 src/Aida.Sdk/Model/Rectangle.cs
 src/Aida.Sdk/Model/RectangleDto.cs
+src/Aida.Sdk/Model/ResumeItem.cs
 src/Aida.Sdk/Model/RotateEntitiesDto.cs
 src/Aida.Sdk/Model/RuntimeMetrics.cs
 src/Aida.Sdk/Model/RuntimeOcrInspectionResult.cs

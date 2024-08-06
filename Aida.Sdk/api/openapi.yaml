@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  description: 1.0.700.1
+  description: 1.0.703.1
   title: aida
-  version: 1.0.700.1
+  version: 1.0.703.1
 servers:
 - url: /
 security:
@@ -2164,6 +2164,57 @@ paths:
           description: Success
       tags:
       - Inkjet
+  /aida/v1/inkjet/logerror:
+    post:
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/AidaLogEntry'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AidaLogEntry'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AidaLogEntry'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AidaLogEntry'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Inkjet
+  /aida/v1/inkjet/logerror/{id}:
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/AidaLogEntry'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AidaLogEntry'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AidaLogEntry'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AidaLogEntry'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Inkjet
   /aida/v1/inkjet/load-test-image:
     get:
       operationId: LoadTestImage
@@ -2251,6 +2302,14 @@ paths:
           format: int32
           type: integer
         style: form
+      - explode: true
+        in: query
+        name: passes
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
       - description: ""
         explode: true
         in: query
@@ -2283,9 +2342,9 @@ paths:
           description: Success
       tags:
       - Inkjet
-  /aida/v1/inkjet/board/disable-print:
+  /aida/v1/inkjet/stop-print:
     post:
-      operationId: DisablePrint
+      operationId: StopPrint
       responses:
         "200":
           description: Success
@@ -3207,6 +3266,70 @@ paths:
           description: Success
       tags:
       - Inkjet
+  /aida/v1/inkjet/shingling-close-job:
+    post:
+      operationId: CloseJob
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Inkjet
+  /aida/v1/inkjet/shingling-new-job:
+    post:
+      operationId: NewJob
+      parameters:
+      - explode: true
+        in: query
+        name: imagePath
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Inkjet
+  /aida/v1/inkjet/shingling-load-image:
+    post:
+      operationId: JobInsertImage
+      parameters:
+      - explode: true
+        in: query
+        name: imagePath
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: angle
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: x
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: "y"
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Inkjet
   /aida/v1/inkjet/reset:
     post:
       operationId: ResetInkjetPrinter
@@ -3510,6 +3633,29 @@ paths:
           description: Success
       tags:
       - Inkjet
+  /jobtemplate/{id}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: api-version
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: Success
+      tags:
+      - JobTemplate
   /aida/v1/lamp/state:
     get:
       operationId: GetLampState
@@ -4069,7 +4215,7 @@ paths:
           description: Success
       tags:
       - Modbus
-  /aida/v1/modbus/{port}/write-single-register:
+  /aida/v1/modbus/{port}/{slaveId}/registers/{address}:
     post:
       operationId: WriteSingleRegister
       parameters:
@@ -4080,20 +4226,27 @@ paths:
         schema:
           type: string
         style: simple
-      requestBody:
-        content:
-          application/json-patch+json:
-            schema:
-              type: string
-          application/json:
-            schema:
-              type: string
-          text/json:
-            schema:
-              type: string
-          application/*+json:
-            schema:
-              type: string
+      - explode: false
+        in: path
+        name: slaveId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: address
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: value
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           description: Success
@@ -4828,6 +4981,14 @@ paths:
           description: Success
       tags:
       - PersoProcessConfiguration
+  /aida/v1/workflows/purge-workflow-data:
+    post:
+      operationId: PurgeWorkflowData
+      responses:
+        "200":
+          description: Success
+      tags:
+      - PersoProcessConfiguration
   /aida/v1/workflows/job-instance/{jobInstanceId}:
     get:
       operationId: GetJobInstance
@@ -5196,64 +5357,6 @@ paths:
           description: Success
       tags:
       - Scanner
-  /aida/v1/scanner/load-sjf-file:
-    post:
-      operationId: LoadSjfFile
-      parameters:
-      - explode: true
-        in: query
-        name: scannerId
-        required: false
-        schema:
-          type: string
-        style: form
-      requestBody:
-        content:
-          multipart/form-data:
-            encoding:
-              filename:
-                style: form
-            schema:
-              $ref: '#/components/schemas/LoadSjfFile_request'
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/ScannerAppStateDto'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ScannerAppStateDto'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/ScannerAppStateDto'
-          description: Success
-      tags:
-      - Scanner
-  /aida/v1/scanner/sjf-files:
-    get:
-      operationId: ListSjfFiles
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                items:
-                  type: string
-                type: array
-            application/json:
-              schema:
-                items:
-                  type: string
-                type: array
-            text/json:
-              schema:
-                items:
-                  type: string
-                type: array
-          description: Success
-      tags:
-      - Scanner
   /aida/v1/scanner/load-job-instance:
     post:
       operationId: LoadJobInstance
@@ -5316,6 +5419,64 @@ paths:
           description: Success
       summary: "Loads a job template, fetches the personalization data from the configured\
         \ data source\r\nand updates entities"
+      tags:
+      - Scanner
+  /aida/v1/scanner/load-sjf-file:
+    post:
+      operationId: LoadSjfFile
+      parameters:
+      - explode: true
+        in: query
+        name: scannerId
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              filename:
+                style: form
+            schema:
+              $ref: '#/components/schemas/LoadSjfFile_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ScannerAppStateDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScannerAppStateDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ScannerAppStateDto'
+          description: Success
+      tags:
+      - Scanner
+  /aida/v1/scanner/sjf-files:
+    get:
+      operationId: ListSjfFiles
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  type: string
+                type: array
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+            text/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: Success
       tags:
       - Scanner
   /aida/v1/scanner/system-pixel-map:
@@ -8957,7 +9118,7 @@ paths:
           description: Success
       tags:
       - Scanner
-  /aida/v1/scanner/print-settings/{id}:
+  /aida/v1/scanner/inkjet/print-settings/{id}:
     get:
       operationId: GetPrintSettings
       parameters:
@@ -8984,7 +9145,7 @@ paths:
           description: Success
       tags:
       - Scanner
-  /aida/v1/scanner/job-template/{id}/inkjetlayouts:
+  /aida/v1/scanner/job-template/inkjet/{id}/inkjetlayouts:
     post:
       operationId: AssignInkjetLayoutsToJobTemplate
       parameters:
@@ -9023,7 +9184,7 @@ paths:
           description: Success
       tags:
       - Scanner
-  /aida/v1/scanner/job-template/{jobTemplateId}/{supportSide}/{inkjetLayoutId}:
+  /aida/v1/scanner/job-template/inkjet/{jobTemplateId}/{supportSide}/{inkjetLayoutId}:
     delete:
       operationId: RemoveInkjetLayoutFromJobTemplate
       parameters:
@@ -9756,36 +9917,20 @@ paths:
   /aida/v1/scanner/layouts/upload:
     post:
       operationId: UploadLayoutFile
-      parameters:
-      - explode: true
-        in: query
-        name: layoutName
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: supportSide
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: scannerId
-        required: false
-        schema:
-          type: string
-        style: form
       requestBody:
         content:
           multipart/form-data:
             encoding:
+              layoutName:
+                style: form
+              supportSide:
+                style: form
+              scannerId:
+                style: form
               files:
                 style: form
             schema:
-              $ref: '#/components/schemas/Upload_request'
+              $ref: '#/components/schemas/UploadLayoutFile_request'
       responses:
         "200":
           content:
@@ -9924,7 +10069,7 @@ paths:
       tags:
       - Service
   /aida/v1/system/reset:
-    get:
+    post:
       operationId: SystemReset
       responses:
         "200":
@@ -10839,6 +10984,30 @@ paths:
           description: Success
       tags:
       - WorkflowScheduler
+  /aida/v1/workflow-scheduler/resume-items:
+    get:
+      operationId: GetResumeItems
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ResumeItem'
+                type: array
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ResumeItem'
+                type: array
+            text/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ResumeItem'
+                type: array
+          description: Success
+      tags:
+      - WorkflowScheduler
   /aida/v1/workflow-scheduler/resume:
     post:
       operationId: ResumeWorkflowScheduler
@@ -11408,8 +11577,41 @@ paths:
           description: Success
       tags:
       - WorkflowScheduler
+  /aida/v1/workflow-scheduler/workflows/{workflowInstanceId}/context:
+    get:
+      operationId: GetWorkflowContextByWorkflowInstanceId
+      parameters:
+      - explode: false
+        in: path
+        name: workflowInstanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      tags:
+      - WorkflowScheduler
 components:
   schemas:
+    AidaLogEntry:
+      additionalProperties: false
+      example:
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        message: message
+        timestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: uuid
+          type: string
+        message:
+          nullable: true
+          type: string
+        timestamp:
+          format: date-time
+          type: string
+      type: object
     AidaUserDto:
       additionalProperties: false
       example:
@@ -19169,6 +19371,27 @@ components:
           format: int32
           type: integer
         dataType:
+          nullable: true
+          type: string
+      type: object
+    ResumeItem:
+      additionalProperties: false
+      example:
+        jobId: jobId
+        jobInstanceId: 0
+        correlationId: correlationId
+        workflowInstanceId: workflowInstanceId
+      properties:
+        jobInstanceId:
+          format: int32
+          type: integer
+        jobId:
+          nullable: true
+          type: string
+        correlationId:
+          nullable: true
+          type: string
+        workflowInstanceId:
           nullable: true
           type: string
       type: object
@@ -27807,10 +28030,14 @@ components:
     TemperatureStatus:
       enum:
       - None
+      - Warming
+      - Ready
       - OverTemperature
       - UnderTemperature
       - Error
       - InRange
+      - Heating
+      - Ok
       type: string
     TemplateMatchOccurence:
       additionalProperties: false
@@ -29722,6 +29949,20 @@ components:
       - $ref: '#/components/schemas/OcrReadBackConfigurationDto'
       - $ref: '#/components/schemas/ChipReadBackConfigurationDto'
       - $ref: '#/components/schemas/MagneticReadBackConfigurationDto'
+    UploadLayoutFile_request:
+      properties:
+        layoutName:
+          type: string
+        supportSide:
+          type: string
+        scannerId:
+          type: string
+        files:
+          items:
+            format: binary
+            type: string
+          type: array
+      type: object
   securitySchemes:
     Bearer:
       bearerFormat: JWT
