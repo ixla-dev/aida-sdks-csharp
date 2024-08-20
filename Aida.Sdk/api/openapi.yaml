@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  description: 1.0.703.1
+  description: 1.0.703.2
   title: aida
-  version: 1.0.703.1
+  version: 1.0.703.2
 servers:
 - url: /
 security:
@@ -2243,12 +2243,6 @@ paths:
           format: int32
           type: integer
         style: form
-      responses:
-        "200":
-          description: Success
-      tags:
-      - Inkjet
-    post:
       responses:
         "200":
           description: Success
@@ -11041,6 +11035,7 @@ paths:
         name: stopAllRunningWorkflows
         required: false
         schema:
+          default: false
           type: boolean
         style: form
       - explode: true
@@ -18003,6 +17998,7 @@ components:
       - OcrReadBack
       - ChipReadBack
       - BarcodeReadBack
+      - WorkflowSchedulerStopping
       type: string
     MirroringMode:
       enum:
@@ -29800,6 +29796,14 @@ components:
       - TransportResetFailed
       type: string
     WorkflowSchedulerStoppedMessage:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/WorkflowMessage'
+      properties:
+        stopReason:
+          $ref: '#/components/schemas/WorkflowSchedulerStopReason'
+      type: object
+    WorkflowSchedulerStoppingMessage:
       additionalProperties: false
       allOf:
       - $ref: '#/components/schemas/WorkflowMessage'

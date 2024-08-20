@@ -2250,7 +2250,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WorkflowSchedulerApi(httpClient, config, httpClientHandler);
-            var stopAllRunningWorkflows = true;  // bool? |  (optional) 
+            var stopAllRunningWorkflows = false;  // bool? |  (optional)  (default to false)
             var errorCode = (JobErrorCodes) "NoErrors";  // JobErrorCodes? |  (optional) 
 
             try
@@ -2292,7 +2292,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **stopAllRunningWorkflows** | **bool?** |  | [optional]  |
+| **stopAllRunningWorkflows** | **bool?** |  | [optional] [default to false] |
 | **errorCode** | **JobErrorCodes?** |  | [optional]  |
 
 ### Return type

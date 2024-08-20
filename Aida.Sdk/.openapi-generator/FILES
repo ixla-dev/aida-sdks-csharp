@@ -337,6 +337,7 @@ docs/WorkflowSchedulerStateDto.md
 docs/WorkflowSchedulerStatus.md
 docs/WorkflowSchedulerStopReason.md
 docs/WorkflowSchedulerStoppedMessage.md
+docs/WorkflowSchedulerStoppingMessage.md
 docs/WorkflowStartedMessage.md
 docs/WorkflowStatus.md
 docs/XPrintDoorStatus.md
@@ -676,6 +677,7 @@ src/Aida.Sdk.Test/Model/WorkflowSchedulerStateDtoTests.cs
 src/Aida.Sdk.Test/Model/WorkflowSchedulerStatusTests.cs
 src/Aida.Sdk.Test/Model/WorkflowSchedulerStopReasonTests.cs
 src/Aida.Sdk.Test/Model/WorkflowSchedulerStoppedMessageTests.cs
+src/Aida.Sdk.Test/Model/WorkflowSchedulerStoppingMessageTests.cs
 src/Aida.Sdk.Test/Model/WorkflowStartedMessageTests.cs
 src/Aida.Sdk.Test/Model/WorkflowStatusTests.cs
 src/Aida.Sdk.Test/Model/XPrintDoorStatusTests.cs
@@ -1032,6 +1034,7 @@ src/Aida.Sdk/Model/WorkflowSchedulerStateDto.cs
 src/Aida.Sdk/Model/WorkflowSchedulerStatus.cs
 src/Aida.Sdk/Model/WorkflowSchedulerStopReason.cs
 src/Aida.Sdk/Model/WorkflowSchedulerStoppedMessage.cs
+src/Aida.Sdk/Model/WorkflowSchedulerStoppingMessage.cs
 src/Aida.Sdk/Model/WorkflowStartedMessage.cs
 src/Aida.Sdk/Model/WorkflowStatus.cs
 src/Aida.Sdk/Model/XPrintDoorStatus.cs

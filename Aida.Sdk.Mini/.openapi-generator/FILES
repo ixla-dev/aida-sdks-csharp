@@ -139,6 +139,7 @@ docs/WorkflowSchedulerStateDto.md
 docs/WorkflowSchedulerStatus.md
 docs/WorkflowSchedulerStopReason.md
 docs/WorkflowSchedulerStoppedMessage.md
+docs/WorkflowSchedulerStoppingMessage.md
 docs/WorkflowStartedMessage.md
 docs/WorkflowStatus.md
 git_push.sh
@@ -278,6 +279,7 @@ src/Aida.Sdk.Mini.Test/Model/WorkflowSchedulerStateDtoTests.cs
 src/Aida.Sdk.Mini.Test/Model/WorkflowSchedulerStatusTests.cs
 src/Aida.Sdk.Mini.Test/Model/WorkflowSchedulerStopReasonTests.cs
 src/Aida.Sdk.Mini.Test/Model/WorkflowSchedulerStoppedMessageTests.cs
+src/Aida.Sdk.Mini.Test/Model/WorkflowSchedulerStoppingMessageTests.cs
 src/Aida.Sdk.Mini.Test/Model/WorkflowStartedMessageTests.cs
 src/Aida.Sdk.Mini.Test/Model/WorkflowStatusTests.cs
 src/Aida.Sdk.Mini/Aida.Sdk.Mini.csproj
@@ -434,5 +436,6 @@ src/Aida.Sdk.Mini/Model/WorkflowSchedulerStateDto.cs
 src/Aida.Sdk.Mini/Model/WorkflowSchedulerStatus.cs
 src/Aida.Sdk.Mini/Model/WorkflowSchedulerStopReason.cs
 src/Aida.Sdk.Mini/Model/WorkflowSchedulerStoppedMessage.cs
+src/Aida.Sdk.Mini/Model/WorkflowSchedulerStoppingMessage.cs
 src/Aida.Sdk.Mini/Model/WorkflowStartedMessage.cs
 src/Aida.Sdk.Mini/Model/WorkflowStatus.cs

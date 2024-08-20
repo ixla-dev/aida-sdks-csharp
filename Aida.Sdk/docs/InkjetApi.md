@@ -5,7 +5,6 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AddEntityToInkjetLayout**](InkjetApi.md#addentitytoinkjetlayout) | **POST** /aida/v1/inkjet/layouts/{inkjetLayoutId}/add-entity |  |
-| [**AidaV1InkjetLoadTestImagePost**](InkjetApi.md#aidav1inkjetloadtestimagepost) | **POST** /aida/v1/inkjet/load-test-image |  |
 | [**AidaV1InkjetLogerrorIdPut**](InkjetApi.md#aidav1inkjetlogerroridput) | **PUT** /aida/v1/inkjet/logerror/{id} |  |
 | [**AidaV1InkjetLogerrorPost**](InkjetApi.md#aidav1inkjetlogerrorpost) | **POST** /aida/v1/inkjet/logerror |  |
 | [**AidaV1InkjetPrintStatusGet**](InkjetApi.md#aidav1inkjetprintstatusget) | **GET** /aida/v1/inkjet/print-status |  |
@@ -160,91 +159,6 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="aidav1inkjetloadtestimagepost"></a>
-# **AidaV1InkjetLoadTestImagePost**
-> void AidaV1InkjetLoadTestImagePost ()
-
-
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Aida.Sdk.Api;
-using Aida.Sdk.Client;
-using Aida.Sdk.Model;
-
-namespace Example
-{
-    public class AidaV1InkjetLoadTestImagePostExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new InkjetApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                apiInstance.AidaV1InkjetLoadTestImagePost();
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling InkjetApi.AidaV1InkjetLoadTestImagePost: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the AidaV1InkjetLoadTestImagePostWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    apiInstance.AidaV1InkjetLoadTestImagePostWithHttpInfo();
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling InkjetApi.AidaV1InkjetLoadTestImagePostWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: Not defined
 
 
