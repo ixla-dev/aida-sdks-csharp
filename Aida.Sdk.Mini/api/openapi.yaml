@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  description: 1.0.703.2
+  description: 1.0.703.4
   title: aida-mini
-  version: 1.0.703.2
+  version: 1.0.703.4
 servers:
 - url: /
 security:
@@ -12273,6 +12273,9 @@ components:
       - CardJam
       - FeederEmpty
       - OpenInterlock
+      - PrintHeadWarming
+      - PrintHeadOverTemperature
+      - LaserInterfaceError
       type: string
     SystemStatus:
       enum:
