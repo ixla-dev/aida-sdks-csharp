@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  description: 1.0.703.4
+  description: 1.0.704.0
   title: aida-mini
-  version: 1.0.703.4
+  version: 1.0.704.0
 servers:
 - url: /
 security:
@@ -1296,6 +1296,24 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/SystemStatusDto'
+          description: Success
+      tags:
+      - Integration
+  /aida/v1/system/info:
+    get:
+      operationId: GetSystemInfo
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SystemInfoStatusDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemInfoStatusDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SystemInfoStatusDto'
           description: Success
       tags:
       - Integration
@@ -12277,6 +12295,27 @@ components:
       - PrintHeadOverTemperature
       - LaserInterfaceError
       type: string
+    SystemInfoStatusDto:
+      additionalProperties: false
+      example:
+        serverVersion: serverVersion
+        serialNumber: serialNumber
+        systemModel: systemModel
+        ipAddress: ipAddress
+      properties:
+        serialNumber:
+          nullable: true
+          type: string
+        systemModel:
+          nullable: true
+          type: string
+        ipAddress:
+          nullable: true
+          type: string
+        serverVersion:
+          nullable: true
+          type: string
+      type: object
     SystemStatus:
       enum:
       - Booting

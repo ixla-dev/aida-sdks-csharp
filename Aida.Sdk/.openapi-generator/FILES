@@ -272,7 +272,7 @@ docs/SupportDto.md
 docs/SupportSide.md
 docs/SystemApi.md
 docs/SystemErrorCodes.md
-docs/SystemInfoApi.md
+docs/SystemInfoStatusDto.md
 docs/SystemStatus.md
 docs/SystemStatusDto.md
 docs/SystemStatusFlags.md
@@ -373,7 +373,6 @@ src/Aida.Sdk.Test/Api/PersonalizationSessionApiTests.cs
 src/Aida.Sdk.Test/Api/ScannerApiTests.cs
 src/Aida.Sdk.Test/Api/ServiceApiTests.cs
 src/Aida.Sdk.Test/Api/SystemApiTests.cs
-src/Aida.Sdk.Test/Api/SystemInfoApiTests.cs
 src/Aida.Sdk.Test/Api/TransportApiTests.cs
 src/Aida.Sdk.Test/Api/WebhooksTargetsApiTests.cs
 src/Aida.Sdk.Test/Api/WorkflowSchedulerApiTests.cs
@@ -616,6 +615,7 @@ src/Aida.Sdk.Test/Model/SupportDtoTests.cs
 src/Aida.Sdk.Test/Model/SupportSideTests.cs
 src/Aida.Sdk.Test/Model/SupportTests.cs
 src/Aida.Sdk.Test/Model/SystemErrorCodesTests.cs
+src/Aida.Sdk.Test/Model/SystemInfoStatusDtoTests.cs
 src/Aida.Sdk.Test/Model/SystemStatusDtoTests.cs
 src/Aida.Sdk.Test/Model/SystemStatusFlagsTests.cs
 src/Aida.Sdk.Test/Model/SystemStatusTests.cs
@@ -712,7 +712,6 @@ src/Aida.Sdk/Api/PersonalizationSessionApi.cs
 src/Aida.Sdk/Api/ScannerApi.cs
 src/Aida.Sdk/Api/ServiceApi.cs
 src/Aida.Sdk/Api/SystemApi.cs
-src/Aida.Sdk/Api/SystemInfoApi.cs
 src/Aida.Sdk/Api/TransportApi.cs
 src/Aida.Sdk/Api/WebhooksTargetsApi.cs
 src/Aida.Sdk/Api/WorkflowSchedulerApi.cs
@@ -973,6 +972,7 @@ src/Aida.Sdk/Model/Support.cs
 src/Aida.Sdk/Model/SupportDto.cs
 src/Aida.Sdk/Model/SupportSide.cs
 src/Aida.Sdk/Model/SystemErrorCodes.cs
+src/Aida.Sdk/Model/SystemInfoStatusDto.cs
 src/Aida.Sdk/Model/SystemStatus.cs
 src/Aida.Sdk/Model/SystemStatusDto.cs
 src/Aida.Sdk/Model/SystemStatusFlags.cs

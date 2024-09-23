@@ -65,7 +65,6 @@ All URIs are relative to *http://localhost*
 | [**StartMultiPrint**](InkjetApi.md#startmultiprint) | **POST** /aida/v1/inkjet/settings/multi-print-start |  |
 | [**StopMultiPrint**](InkjetApi.md#stopmultiprint) | **POST** /aida/v1/inkjet/settings/multi-print-stop |  |
 | [**StopPrint**](InkjetApi.md#stopprint) | **POST** /aida/v1/inkjet/stop-print |  |
-| [**Test**](InkjetApi.md#test) | **GET** /aida/v1/inkjet/test |  |
 | [**ToggleCapping**](InkjetApi.md#togglecapping) | **POST** /aida/v1/inkjet/cleaning/toggle-capping |  |
 | [**ToggleCappingPump**](InkjetApi.md#togglecappingpump) | **POST** /aida/v1/inkjet/cleaning/toggle-capping-pump |  |
 | [**ToggleInkPriming**](InkjetApi.md#toggleinkpriming) | **POST** /aida/v1/inkjet/cleaning/toggle-ink-priming |  |
@@ -5567,91 +5566,6 @@ try
 catch (ApiException e)
 {
     Debug.Print("Exception when calling InkjetApi.StopPrintWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="test"></a>
-# **Test**
-> void Test ()
-
-
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Aida.Sdk.Api;
-using Aida.Sdk.Client;
-using Aida.Sdk.Model;
-
-namespace Example
-{
-    public class TestExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new InkjetApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                apiInstance.Test();
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling InkjetApi.Test: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the TestWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    apiInstance.TestWithHttpInfo();
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling InkjetApi.TestWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

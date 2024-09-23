@@ -30,6 +30,7 @@ All URIs are relative to *http://localhost*
 | [**GetRunningWorkflows**](IntegrationApi.md#getrunningworkflows) | **GET** /aida/v1/workflow-scheduler/workflows/running |  |
 | [**GetSmartCardAtr**](IntegrationApi.md#getsmartcardatr) | **GET** /api/v1/pcsc-gateway/{readerIndex}/smart-card/atr | Invokes SCardConnect on the specified reader and tries to read the ATR  from the card currently present in the reader |
 | [**GetSmartCardStatus**](IntegrationApi.md#getsmartcardstatus) | **GET** /api/v1/pcsc-gateway/{readerIndex}/smart-card/status | Invoke SCardStatus on the specified reader |
+| [**GetSystemInfo**](IntegrationApi.md#getsysteminfo) | **GET** /aida/v1/system/info |  |
 | [**GetSystemStatus**](IntegrationApi.md#getsystemstatus) | **GET** /aida/v1/system/status |  |
 | [**GetWebhooksTargetById**](IntegrationApi.md#getwebhookstargetbyid) | **GET** /aida/v1/webhooks-targets/{id} |  |
 | [**GetWorkflowRegistry**](IntegrationApi.md#getworkflowregistry) | **GET** /aida/v1/workflow-scheduler/workflow-registry |  |
@@ -2539,6 +2540,95 @@ catch (ApiException e)
 ### Return type
 
 [**SCardState**](SCardState.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getsysteminfo"></a>
+# **GetSystemInfo**
+> SystemInfoStatusDto GetSystemInfo ()
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Mini.Api;
+using Aida.Sdk.Mini.Client;
+using Aida.Sdk.Mini.Model;
+
+namespace Example
+{
+    public class GetSystemInfoExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new IntegrationApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                SystemInfoStatusDto result = apiInstance.GetSystemInfo();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.GetSystemInfo: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetSystemInfoWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<SystemInfoStatusDto> response = apiInstance.GetSystemInfoWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling IntegrationApi.GetSystemInfoWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**SystemInfoStatusDto**](SystemInfoStatusDto.md)
 
 ### Authorization
 

@@ -113,6 +113,7 @@ docs/SmartCardReaderState.md
 docs/SortDirection.md
 docs/SupportSide.md
 docs/SystemErrorCodes.md
+docs/SystemInfoStatusDto.md
 docs/SystemStatus.md
 docs/SystemStatusDto.md
 docs/TemplateMatchingConfigurationDto.md
@@ -253,6 +254,7 @@ src/Aida.Sdk.Mini.Test/Model/SmartCardReaderStateTests.cs
 src/Aida.Sdk.Mini.Test/Model/SortDirectionTests.cs
 src/Aida.Sdk.Mini.Test/Model/SupportSideTests.cs
 src/Aida.Sdk.Mini.Test/Model/SystemErrorCodesTests.cs
+src/Aida.Sdk.Mini.Test/Model/SystemInfoStatusDtoTests.cs
 src/Aida.Sdk.Mini.Test/Model/SystemStatusDtoTests.cs
 src/Aida.Sdk.Mini.Test/Model/SystemStatusTests.cs
 src/Aida.Sdk.Mini.Test/Model/TemplateMatchingConfigurationDtoTests.cs
@@ -410,6 +412,7 @@ src/Aida.Sdk.Mini/Model/SmartCardReaderState.cs
 src/Aida.Sdk.Mini/Model/SortDirection.cs
 src/Aida.Sdk.Mini/Model/SupportSide.cs
 src/Aida.Sdk.Mini/Model/SystemErrorCodes.cs
+src/Aida.Sdk.Mini/Model/SystemInfoStatusDto.cs
 src/Aida.Sdk.Mini/Model/SystemStatus.cs
 src/Aida.Sdk.Mini/Model/SystemStatusDto.cs
 src/Aida.Sdk.Mini/Model/TemplateMatchingConfigurationDto.cs

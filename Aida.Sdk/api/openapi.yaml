@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  description: 1.0.703.4
+  description: 1.0.704.0
   title: aida
-  version: 1.0.703.4
+  version: 1.0.704.0
 servers:
 - url: /
 security:
@@ -2840,14 +2840,6 @@ paths:
                 style: form
             schema:
               $ref: '#/components/schemas/InsertImage_request'
-      responses:
-        "200":
-          description: Success
-      tags:
-      - Inkjet
-  /aida/v1/inkjet/test:
-    get:
-      operationId: Test
       responses:
         "200":
           description: Success
@@ -10080,6 +10072,24 @@ paths:
           description: Success
       tags:
       - System
+  /aida/v1/system/info:
+    get:
+      operationId: GetSystemInfo
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SystemInfoStatusDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemInfoStatusDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SystemInfoStatusDto'
+          description: Success
+      tags:
+      - System
   /aida/v1/system/status:
     get:
       operationId: GetSystemStatus
@@ -10166,14 +10176,6 @@ paths:
           description: Success
       tags:
       - System
-  /aida/v1/system-info:
-    get:
-      operationId: GetSystemInfo
-      responses:
-        "200":
-          description: Success
-      tags:
-      - SystemInfo
   /aida/v1/transport/state:
     get:
       operationId: GetTransportState
@@ -27914,6 +27916,27 @@ components:
       - PrintHeadOverTemperature
       - LaserInterfaceError
       type: string
+    SystemInfoStatusDto:
+      additionalProperties: false
+      example:
+        serverVersion: serverVersion
+        serialNumber: serialNumber
+        systemModel: systemModel
+        ipAddress: ipAddress
+      properties:
+        serialNumber:
+          nullable: true
+          type: string
+        systemModel:
+          nullable: true
+          type: string
+        ipAddress:
+          nullable: true
+          type: string
+        serverVersion:
+          nullable: true
+          type: string
+      type: object
     SystemStatus:
       enum:
       - Booting
