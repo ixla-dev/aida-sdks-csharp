@@ -15,6 +15,7 @@ docs/ChipEncodingConfigurationDto.md
 docs/ChipReadBackConfigurationDto.md
 docs/ChipReadBackMessage.md
 docs/CreateJobTemplateDto.md
+docs/CuringSettingsDto.md
 docs/DRectangleDto.md
 docs/DataExchangeTableDefinition.md
 docs/DataSourceConfigurationDto.md
@@ -44,6 +45,7 @@ docs/JobErrorCodes.md
 docs/JobInstance.md
 docs/JobStatus.md
 docs/JobTemplateDto.md
+docs/JobTemplateInkjetLayoutAutoPosSettingsDto.md
 docs/JobTemplateInkjetLayoutDto.md
 docs/JobTemplateLayoutAutoPosSettingsDto.md
 docs/JobTemplateLayoutDto.md
@@ -78,6 +80,8 @@ docs/PersoOperationOutcome.md
 docs/PersoOperationStatus.md
 docs/PersoOperationTypes.md
 docs/PhotoSensorsFlags.md
+docs/PinningSettingsDto.md
+docs/PrintQuality.md
 docs/PrintSettingsDto.md
 docs/ReadBackConfigurationDto.md
 docs/ReadBackType.md
@@ -157,6 +161,7 @@ src/Aida.Sdk.Mini.Test/Model/ChipEncodingConfigurationDtoTests.cs
 src/Aida.Sdk.Mini.Test/Model/ChipReadBackConfigurationDtoTests.cs
 src/Aida.Sdk.Mini.Test/Model/ChipReadBackMessageTests.cs
 src/Aida.Sdk.Mini.Test/Model/CreateJobTemplateDtoTests.cs
+src/Aida.Sdk.Mini.Test/Model/CuringSettingsDtoTests.cs
 src/Aida.Sdk.Mini.Test/Model/DRectangleDtoTests.cs
 src/Aida.Sdk.Mini.Test/Model/DataExchangeTableDefinitionTests.cs
 src/Aida.Sdk.Mini.Test/Model/DataSourceConfigurationDtoTests.cs
@@ -185,6 +190,7 @@ src/Aida.Sdk.Mini.Test/Model/JobErrorCodesTests.cs
 src/Aida.Sdk.Mini.Test/Model/JobInstanceTests.cs
 src/Aida.Sdk.Mini.Test/Model/JobStatusTests.cs
 src/Aida.Sdk.Mini.Test/Model/JobTemplateDtoTests.cs
+src/Aida.Sdk.Mini.Test/Model/JobTemplateInkjetLayoutAutoPosSettingsDtoTests.cs
 src/Aida.Sdk.Mini.Test/Model/JobTemplateInkjetLayoutDtoTests.cs
 src/Aida.Sdk.Mini.Test/Model/JobTemplateLayoutAutoPosSettingsDtoTests.cs
 src/Aida.Sdk.Mini.Test/Model/JobTemplateLayoutDtoTests.cs
@@ -219,6 +225,8 @@ src/Aida.Sdk.Mini.Test/Model/PersoOperationOutcomeTests.cs
 src/Aida.Sdk.Mini.Test/Model/PersoOperationStatusTests.cs
 src/Aida.Sdk.Mini.Test/Model/PersoOperationTypesTests.cs
 src/Aida.Sdk.Mini.Test/Model/PhotoSensorsFlagsTests.cs
+src/Aida.Sdk.Mini.Test/Model/PinningSettingsDtoTests.cs
+src/Aida.Sdk.Mini.Test/Model/PrintQualityTests.cs
 src/Aida.Sdk.Mini.Test/Model/PrintSettingsDtoTests.cs
 src/Aida.Sdk.Mini.Test/Model/ReadBackConfigurationDtoTests.cs
 src/Aida.Sdk.Mini.Test/Model/ReadBackTypeTests.cs
@@ -315,6 +323,7 @@ src/Aida.Sdk.Mini/Model/ChipEncodingConfigurationDto.cs
 src/Aida.Sdk.Mini/Model/ChipReadBackConfigurationDto.cs
 src/Aida.Sdk.Mini/Model/ChipReadBackMessage.cs
 src/Aida.Sdk.Mini/Model/CreateJobTemplateDto.cs
+src/Aida.Sdk.Mini/Model/CuringSettingsDto.cs
 src/Aida.Sdk.Mini/Model/DRectangleDto.cs
 src/Aida.Sdk.Mini/Model/DataExchangeTableDefinition.cs
 src/Aida.Sdk.Mini/Model/DataSourceConfigurationDto.cs
@@ -343,6 +352,7 @@ src/Aida.Sdk.Mini/Model/JobErrorCodes.cs
 src/Aida.Sdk.Mini/Model/JobInstance.cs
 src/Aida.Sdk.Mini/Model/JobStatus.cs
 src/Aida.Sdk.Mini/Model/JobTemplateDto.cs
+src/Aida.Sdk.Mini/Model/JobTemplateInkjetLayoutAutoPosSettingsDto.cs
 src/Aida.Sdk.Mini/Model/JobTemplateInkjetLayoutDto.cs
 src/Aida.Sdk.Mini/Model/JobTemplateLayoutAutoPosSettingsDto.cs
 src/Aida.Sdk.Mini/Model/JobTemplateLayoutDto.cs
@@ -377,6 +387,8 @@ src/Aida.Sdk.Mini/Model/PersoOperationOutcome.cs
 src/Aida.Sdk.Mini/Model/PersoOperationStatus.cs
 src/Aida.Sdk.Mini/Model/PersoOperationTypes.cs
 src/Aida.Sdk.Mini/Model/PhotoSensorsFlags.cs
+src/Aida.Sdk.Mini/Model/PinningSettingsDto.cs
+src/Aida.Sdk.Mini/Model/PrintQuality.cs
 src/Aida.Sdk.Mini/Model/PrintSettingsDto.cs
 src/Aida.Sdk.Mini/Model/ReadBackConfigurationDto.cs
 src/Aida.Sdk.Mini/Model/ReadBackType.cs

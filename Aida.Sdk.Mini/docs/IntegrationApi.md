@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**Check**](IntegrationApi.md#check) | **GET** /aida/v1/health-check |  |
 | [**CreateJobTemplate**](IntegrationApi.md#createjobtemplate) | **POST** /aida/v1/scanner/job-templates |  |
 | [**CreateWebhooksTarget**](IntegrationApi.md#createwebhookstarget) | **POST** /aida/v1/webhooks-targets |  |
 | [**DeleteInkjetLayout**](IntegrationApi.md#deleteinkjetlayout) | **DELETE** /aida/v1/inkjet/layouts/{id} |  |
@@ -55,6 +56,91 @@ All URIs are relative to *http://localhost*
 | [**ValidateInkjetLayoutName**](IntegrationApi.md#validateinkjetlayoutname) | **POST** /aida/v1/inkjet/layouts/validate-name |  |
 | [**ValidateJobTemplateName**](IntegrationApi.md#validatejobtemplatename) | **POST** /aida/v1/scanner/job-templates/validate-name |  |
 | [**ValidateLayoutName**](IntegrationApi.md#validatelayoutname) | **POST** /aida/v1/scanner/layouts/validate-name |  |
+
+<a id="check"></a>
+# **Check**
+> void Check ()
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Mini.Api;
+using Aida.Sdk.Mini.Client;
+using Aida.Sdk.Mini.Model;
+
+namespace Example
+{
+    public class CheckExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new IntegrationApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                apiInstance.Check();
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.Check: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CheckWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    apiInstance.CheckWithHttpInfo();
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling IntegrationApi.CheckWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="createjobtemplate"></a>
 # **CreateJobTemplate**

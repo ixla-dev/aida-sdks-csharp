@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AddJobTemplateChipEncodingConfiguration**](ScannerApi.md#addjobtemplatechipencodingconfiguration) | **POST** /aida/v1/scanner/job-templates/{id}/chip-encoding/settings |  |
+| [**AddJobTemplateInkjetLayoutAutoPosSettings**](ScannerApi.md#addjobtemplateinkjetlayoutautopossettings) | **POST** /aida/v1/scanner/job-templates/{jobTemplateId}/inkjet-layouts/{inkjetLayoutId}/autopos-settings |  |
 | [**AddJobTemplateLayoutAutoPosSettings**](ScannerApi.md#addjobtemplatelayoutautopossettings) | **POST** /aida/v1/scanner/job-templates/{jobTemplateId}/layouts/{layoutId}/autopos-settings |  |
 | [**AddMarkGroup**](ScannerApi.md#addmarkgroup) | **POST** /aida/v1/scanner/job-template/{id}/mark-groups |  |
 | [**AidaV1ScannerHealthCheckGet**](ScannerApi.md#aidav1scannerhealthcheckget) | **GET** /aida/v1/scanner/health-check |  |
@@ -31,13 +32,11 @@ All URIs are relative to *http://localhost*
 | [**CreateJobTemplateOcrSettings**](ScannerApi.md#createjobtemplateocrsettings) | **POST** /aida/v1/scanner/job-template-ocr-settings |  |
 | [**CreateLine**](ScannerApi.md#createline) | **POST** /aida/v1/scanner/create-line |  |
 | [**CreateOcrSettings**](ScannerApi.md#createocrsettings) | **POST** /aida/v1/scanner/camera/ocr-settings |  |
-| [**CreatePrintSettings**](ScannerApi.md#createprintsettings) | **POST** /aida/v1/scanner/job-template-inkjet-layouts/{jobTemplateInkjetLayoutId}/print-settings |  |
 | [**CreateRectangle**](ScannerApi.md#createrectangle) | **POST** /aida/v1/scanner/create-rect |  |
 | [**DeleteJobTemplate**](ScannerApi.md#deletejobtemplate) | **DELETE** /aida/v1/scanner/job-templates/{id} |  |
 | [**DeleteJobTemplateOcrSettings**](ScannerApi.md#deletejobtemplateocrsettings) | **DELETE** /aida/v1/scanner/job-template-ocr-settings/{jobTemplateOcrSettingsId} |  |
 | [**DeleteLayout**](ScannerApi.md#deletelayout) | **DELETE** /aida/v1/scanner/layouts/{id} |  |
 | [**DeleteOcrSettings**](ScannerApi.md#deleteocrsettings) | **DELETE** /aida/v1/scanner/camera/ocr-settings/{ocrSettingsId} |  |
-| [**DeletePrintSettings**](ScannerApi.md#deleteprintsettings) | **DELETE** /aida/v1/scanner/job-template-inkjet-layouts/{jobTemplateInkjetLayoutId}/print-settings |  |
 | [**DeleteReadBackConfiguration**](ScannerApi.md#deletereadbackconfiguration) | **DELETE** /aida/v1/scanner/job-templates/{jobTemplateId}/read-back-configuration |  |
 | [**DisableDebugMode**](ScannerApi.md#disabledebugmode) | **GET** /aida/v1/scanner/debug/disable |  |
 | [**DisableIllumination**](ScannerApi.md#disableillumination) | **POST** /aida/v1/scanner/illumination/disable |  |
@@ -74,7 +73,6 @@ All URIs are relative to *http://localhost*
 | [**GetLayoutStoreSettings**](ScannerApi.md#getlayoutstoresettings) | **GET** /aida/v1/scanner/layouts/settings |  |
 | [**GetPixelMapForPen**](ScannerApi.md#getpixelmapforpen) | **GET** /aida/v1/scanner/pens/{id}/pixel-map |  |
 | [**GetPreview**](ScannerApi.md#getpreview) | **GET** /aida/v1/scanner/preview.jpg |  |
-| [**GetPrintSettings**](ScannerApi.md#getprintsettings) | **GET** /aida/v1/scanner/inkjet/print-settings/{id} |  |
 | [**GetSamLightOptions**](ScannerApi.md#getsamlightoptions) | **GET** /aida/v1/scanner/settings |  |
 | [**GetSnapshot**](ScannerApi.md#getsnapshot) | **GET** /aida/v1/scanner/camera/get-snapshot |  |
 | [**GetSnapshotImage**](ScannerApi.md#getsnapshotimage) | **GET** /aida/v1/scanner/camera/get-snapshot.{format} |  |
@@ -138,6 +136,7 @@ All URIs are relative to *http://localhost*
 | [**UpdateCameraSettings**](ScannerApi.md#updatecamerasettings) | **PUT** /aida/v1/scanner/camera/settings |  |
 | [**UpdateEntities**](ScannerApi.md#updateentities) | **PUT** /aida/v1/scanner/update-entities | Updates entity text/image data |
 | [**UpdateEntityProperties**](ScannerApi.md#updateentityproperties) | **PUT** /aida/v1/scanner/entities |  |
+| [**UpdateInkjetLayoutPrintSettings**](ScannerApi.md#updateinkjetlayoutprintsettings) | **PUT** /aida/v1/scanner/job-template/layout/update-print-settings |  |
 | [**UpdateJobTemplateOcrSettings**](ScannerApi.md#updatejobtemplateocrsettings) | **PUT** /aida/v1/scanner/job-template-ocr-settings |  |
 | [**UpdateMarkGroups**](ScannerApi.md#updatemarkgroups) | **PUT** /aida/v1/scanner/job-templates/{id}/mark-groups |  |
 | [**UpdateMirroringSettings**](ScannerApi.md#updatemirroringsettings) | **PUT** /aida/v1/scanner/job-template/layout/update-mirroring-settings |  |
@@ -230,6 +229,106 @@ catch (ApiException e)
 ### Return type
 
 [**ChipEncodingConfigurationDto**](ChipEncodingConfigurationDto.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="addjobtemplateinkjetlayoutautopossettings"></a>
+# **AddJobTemplateInkjetLayoutAutoPosSettings**
+> JobTemplateLayoutAutoPosSettingsDto AddJobTemplateInkjetLayoutAutoPosSettings (int jobTemplateId, int inkjetLayoutId, string scannerId = null, CreateJobTemplateLayoutAutoPosSettingsDto createJobTemplateLayoutAutoPosSettingsDto = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Api;
+using Aida.Sdk.Client;
+using Aida.Sdk.Model;
+
+namespace Example
+{
+    public class AddJobTemplateInkjetLayoutAutoPosSettingsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new ScannerApi(httpClient, config, httpClientHandler);
+            var jobTemplateId = 56;  // int | 
+            var inkjetLayoutId = 56;  // int | 
+            var scannerId = "\"\"";  // string |  (optional)  (default to "")
+            var createJobTemplateLayoutAutoPosSettingsDto = new CreateJobTemplateLayoutAutoPosSettingsDto(); // CreateJobTemplateLayoutAutoPosSettingsDto |  (optional) 
+
+            try
+            {
+                JobTemplateLayoutAutoPosSettingsDto result = apiInstance.AddJobTemplateInkjetLayoutAutoPosSettings(jobTemplateId, inkjetLayoutId, scannerId, createJobTemplateLayoutAutoPosSettingsDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ScannerApi.AddJobTemplateInkjetLayoutAutoPosSettings: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AddJobTemplateInkjetLayoutAutoPosSettingsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<JobTemplateLayoutAutoPosSettingsDto> response = apiInstance.AddJobTemplateInkjetLayoutAutoPosSettingsWithHttpInfo(jobTemplateId, inkjetLayoutId, scannerId, createJobTemplateLayoutAutoPosSettingsDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ScannerApi.AddJobTemplateInkjetLayoutAutoPosSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **jobTemplateId** | **int** |  |  |
+| **inkjetLayoutId** | **int** |  |  |
+| **scannerId** | **string** |  | [optional] [default to &quot;&quot;] |
+| **createJobTemplateLayoutAutoPosSettingsDto** | [**CreateJobTemplateLayoutAutoPosSettingsDto**](CreateJobTemplateLayoutAutoPosSettingsDto.md) |  | [optional]  |
+
+### Return type
+
+[**JobTemplateLayoutAutoPosSettingsDto**](JobTemplateLayoutAutoPosSettingsDto.md)
 
 ### Authorization
 
@@ -2674,102 +2773,6 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="createprintsettings"></a>
-# **CreatePrintSettings**
-> PrintSettingsDto CreatePrintSettings (int jobTemplateInkjetLayoutId, PrintSettingsDto printSettingsDto = null)
-
-
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Aida.Sdk.Api;
-using Aida.Sdk.Client;
-using Aida.Sdk.Model;
-
-namespace Example
-{
-    public class CreatePrintSettingsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new ScannerApi(httpClient, config, httpClientHandler);
-            var jobTemplateInkjetLayoutId = 56;  // int | 
-            var printSettingsDto = new PrintSettingsDto(); // PrintSettingsDto |  (optional) 
-
-            try
-            {
-                PrintSettingsDto result = apiInstance.CreatePrintSettings(jobTemplateInkjetLayoutId, printSettingsDto);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling ScannerApi.CreatePrintSettings: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the CreatePrintSettingsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    ApiResponse<PrintSettingsDto> response = apiInstance.CreatePrintSettingsWithHttpInfo(jobTemplateInkjetLayoutId, printSettingsDto);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling ScannerApi.CreatePrintSettingsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **jobTemplateInkjetLayoutId** | **int** |  |  |
-| **printSettingsDto** | [**PrintSettingsDto**](PrintSettingsDto.md) |  | [optional]  |
-
-### Return type
-
-[**PrintSettingsDto**](PrintSettingsDto.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
- - **Accept**: text/plain, application/json, text/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="createrectangle"></a>
 # **CreateRectangle**
 > void CreateRectangle (DRectangleDto dRectangleDto = null)
@@ -3223,96 +3226,6 @@ catch (ApiException e)
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="deleteprintsettings"></a>
-# **DeletePrintSettings**
-> void DeletePrintSettings (int jobTemplateInkjetLayoutId)
-
-
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Aida.Sdk.Api;
-using Aida.Sdk.Client;
-using Aida.Sdk.Model;
-
-namespace Example
-{
-    public class DeletePrintSettingsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new ScannerApi(httpClient, config, httpClientHandler);
-            var jobTemplateInkjetLayoutId = 56;  // int | 
-
-            try
-            {
-                apiInstance.DeletePrintSettings(jobTemplateInkjetLayoutId);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling ScannerApi.DeletePrintSettings: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the DeletePrintSettingsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    apiInstance.DeletePrintSettingsWithHttpInfo(jobTemplateInkjetLayoutId);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling ScannerApi.DeletePrintSettingsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **jobTemplateInkjetLayoutId** | **int** |  |  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
 
 
 ### HTTP response details
@@ -6747,100 +6660,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getprintsettings"></a>
-# **GetPrintSettings**
-> PrintSettingsDto GetPrintSettings (int id)
-
-
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Aida.Sdk.Api;
-using Aida.Sdk.Client;
-using Aida.Sdk.Model;
-
-namespace Example
-{
-    public class GetPrintSettingsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new ScannerApi(httpClient, config, httpClientHandler);
-            var id = 56;  // int | 
-
-            try
-            {
-                PrintSettingsDto result = apiInstance.GetPrintSettings(id);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling ScannerApi.GetPrintSettings: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetPrintSettingsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    ApiResponse<PrintSettingsDto> response = apiInstance.GetPrintSettingsWithHttpInfo(id);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling ScannerApi.GetPrintSettingsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **int** |  |  |
-
-### Return type
-
-[**PrintSettingsDto**](PrintSettingsDto.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, text/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="getsamlightoptions"></a>
 # **GetSamLightOptions**
 > SamlightOpticSettingsDto GetSamLightOptions (string scannerId = null)
@@ -6937,7 +6756,7 @@ catch (ApiException e)
 
 <a id="getsnapshot"></a>
 # **GetSnapshot**
-> void GetSnapshot (string format, string scannerId = null, string cameraId = null, int? width = null, int? height = null, bool? warpPerspective = null, string preset = null)
+> void GetSnapshot (string format, string scannerId = null, string cameraId = null, int? width = null, int? height = null, bool? warpPerspective = null, bool? undistort = null, string preset = null)
 
 
 
@@ -6971,11 +6790,12 @@ namespace Example
             var width = 56;  // int? |  (optional) 
             var height = 56;  // int? |  (optional) 
             var warpPerspective = true;  // bool? |  (optional) 
+            var undistort = true;  // bool? |  (optional) 
             var preset = "preset_example";  // string |  (optional) 
 
             try
             {
-                apiInstance.GetSnapshot(format, scannerId, cameraId, width, height, warpPerspective, preset);
+                apiInstance.GetSnapshot(format, scannerId, cameraId, width, height, warpPerspective, undistort, preset);
             }
             catch (ApiException  e)
             {
@@ -6994,7 +6814,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    apiInstance.GetSnapshotWithHttpInfo(format, scannerId, cameraId, width, height, warpPerspective, preset);
+    apiInstance.GetSnapshotWithHttpInfo(format, scannerId, cameraId, width, height, warpPerspective, undistort, preset);
 }
 catch (ApiException e)
 {
@@ -7014,6 +6834,7 @@ catch (ApiException e)
 | **width** | **int?** |  | [optional]  |
 | **height** | **int?** |  | [optional]  |
 | **warpPerspective** | **bool?** |  | [optional]  |
+| **undistort** | **bool?** |  | [optional]  |
 | **preset** | **string** |  | [optional]  |
 
 ### Return type
@@ -7039,7 +6860,7 @@ void (empty response body)
 
 <a id="getsnapshotimage"></a>
 # **GetSnapshotImage**
-> void GetSnapshotImage (string format, string scannerId = null, string cameraId = null, int? width = null, int? height = null, bool? warpPerspective = null, string preset = null)
+> void GetSnapshotImage (string format, string scannerId = null, string cameraId = null, int? width = null, int? height = null, bool? warpPerspective = null, bool? undistort = null, string preset = null)
 
 
 
@@ -7073,11 +6894,12 @@ namespace Example
             var width = 56;  // int? |  (optional) 
             var height = 56;  // int? |  (optional) 
             var warpPerspective = true;  // bool? |  (optional) 
+            var undistort = true;  // bool? |  (optional) 
             var preset = "preset_example";  // string |  (optional) 
 
             try
             {
-                apiInstance.GetSnapshotImage(format, scannerId, cameraId, width, height, warpPerspective, preset);
+                apiInstance.GetSnapshotImage(format, scannerId, cameraId, width, height, warpPerspective, undistort, preset);
             }
             catch (ApiException  e)
             {
@@ -7096,7 +6918,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    apiInstance.GetSnapshotImageWithHttpInfo(format, scannerId, cameraId, width, height, warpPerspective, preset);
+    apiInstance.GetSnapshotImageWithHttpInfo(format, scannerId, cameraId, width, height, warpPerspective, undistort, preset);
 }
 catch (ApiException e)
 {
@@ -7116,6 +6938,7 @@ catch (ApiException e)
 | **width** | **int?** |  | [optional]  |
 | **height** | **int?** |  | [optional]  |
 | **warpPerspective** | **bool?** |  | [optional]  |
+| **undistort** | **bool?** |  | [optional]  |
 | **preset** | **string** |  | [optional]  |
 
 ### Return type
@@ -12806,6 +12629,96 @@ catch (ApiException e)
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="updateinkjetlayoutprintsettings"></a>
+# **UpdateInkjetLayoutPrintSettings**
+> void UpdateInkjetLayoutPrintSettings (UpdateJobTemplatePrintParametersRequest updateJobTemplatePrintParametersRequest = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Api;
+using Aida.Sdk.Client;
+using Aida.Sdk.Model;
+
+namespace Example
+{
+    public class UpdateInkjetLayoutPrintSettingsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new ScannerApi(httpClient, config, httpClientHandler);
+            var updateJobTemplatePrintParametersRequest = new UpdateJobTemplatePrintParametersRequest(); // UpdateJobTemplatePrintParametersRequest |  (optional) 
+
+            try
+            {
+                apiInstance.UpdateInkjetLayoutPrintSettings(updateJobTemplatePrintParametersRequest);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ScannerApi.UpdateInkjetLayoutPrintSettings: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdateInkjetLayoutPrintSettingsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    apiInstance.UpdateInkjetLayoutPrintSettingsWithHttpInfo(updateJobTemplatePrintParametersRequest);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ScannerApi.UpdateInkjetLayoutPrintSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **updateJobTemplatePrintParametersRequest** | [**UpdateJobTemplatePrintParametersRequest**](UpdateJobTemplatePrintParametersRequest.md) |  | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: Not defined
 
 
 ### HTTP response details

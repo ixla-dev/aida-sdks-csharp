@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  description: 1.0.704.0
+  description: 1.0.713
   title: aida-mini
-  version: 1.0.704.0
+  version: 1.0.713
 servers:
 - url: /
 security:
@@ -65,6 +65,14 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/DataExchangeTableDefinition'
+          description: Success
+      tags:
+      - Integration
+  /aida/v1/health-check:
+    get:
+      operationId: Check
+      responses:
+        "200":
           description: Success
       tags:
       - Integration
@@ -2005,6 +2013,28 @@ components:
           nullable: true
           type: string
       type: object
+    CuringSettingsDto:
+      additionalProperties: false
+      example:
+        curingEnabled: true
+        fumeExtractorEnabled: true
+        level: 8
+        dualCuringEnabled: true
+        speed: 6
+      properties:
+        curingEnabled:
+          type: boolean
+        dualCuringEnabled:
+          type: boolean
+        fumeExtractorEnabled:
+          type: boolean
+        level:
+          format: int32
+          type: integer
+        speed:
+          format: int32
+          type: integer
+      type: object
     DRectangleDto:
       additionalProperties: false
       example:
@@ -2667,25 +2697,194 @@ components:
             id: 0
             updatedAt: 2000-01-23T04:56:07.000+00:00
           supportSide: supportSide
-          index: 9
+          curingSettings:
+            curingEnabled: true
+            fumeExtractorEnabled: true
+            level: 8
+            dualCuringEnabled: true
+            speed: 6
+          pinningSettings:
+            level: 1
+            enabled: true
+          autoPosSettings:
+          - isConfigured: true
+            displayName: displayName
+            templateMatchingConfiguration:
+              acquisitionPresetName: acquisitionPresetName
+              isConfigured: true
+              displayName: displayName
+              description: description
+              threshold: 4.652396432933246
+              searchArea:
+                dataType: dataType
+                x: 8
+                width: 3
+                "y": 7
+                height: 3
+              templateArea:
+                dataType: dataType
+                x: 8
+                width: 3
+                "y": 7
+                height: 3
+              scannerModule:
+                positionId: positionId
+                devices:
+                - deviceType: Camera
+                  serialNumber: serialNumber
+                  positionId: positionId
+                  displayName: displayName
+                  name: name
+                  description: description
+                  model: model
+                  id: id
+                  moduleId: moduleId
+                - deviceType: Camera
+                  serialNumber: serialNumber
+                  positionId: positionId
+                  displayName: displayName
+                  name: name
+                  description: description
+                  model: model
+                  id: id
+                  moduleId: moduleId
+                baseAddress: baseAddress
+                displayName: displayName
+                name: name
+                id: id
+                deviceId: deviceId
+              createdAt: 2019-12-10T10:06:50.466318Z
+              warpPerspective: true
+              cameraId: cameraId
+              searchPatternImage:
+                imageFormat: imageFormat
+                file:
+                  createdAt: 2019-12-10T10:06:50.466318Z
+                  extension: extension
+                  filename: filename
+                  size: 4
+                  displayName: displayName
+                  checksum: checksum
+                  location: location
+                  originalFilename: originalFilename
+                  updatedAt: 2019-12-10T10:06:50.466318Z
+                horizontalResolution: 0.20253241
+                verticalResolution: 6.628464
+                width: 4
+                id: 7
+                url: url
+                fileId: 5
+                height: 3
+              name: name
+              scannerId: scannerId
+              debugUrl: debugUrl
+              id: 0
+              updatedAt: 2019-12-10T10:06:50.466318Z
+            index: 5
+            threshold: 8.251626
+            debugUrl: debugUrl
+            id: 7
+            templateMatchingConfigurationId: 4
+            layoutId: 4
+            jobTemplateId: 6
+            layoutName: layoutName
+          - isConfigured: true
+            displayName: displayName
+            templateMatchingConfiguration:
+              acquisitionPresetName: acquisitionPresetName
+              isConfigured: true
+              displayName: displayName
+              description: description
+              threshold: 4.652396432933246
+              searchArea:
+                dataType: dataType
+                x: 8
+                width: 3
+                "y": 7
+                height: 3
+              templateArea:
+                dataType: dataType
+                x: 8
+                width: 3
+                "y": 7
+                height: 3
+              scannerModule:
+                positionId: positionId
+                devices:
+                - deviceType: Camera
+                  serialNumber: serialNumber
+                  positionId: positionId
+                  displayName: displayName
+                  name: name
+                  description: description
+                  model: model
+                  id: id
+                  moduleId: moduleId
+                - deviceType: Camera
+                  serialNumber: serialNumber
+                  positionId: positionId
+                  displayName: displayName
+                  name: name
+                  description: description
+                  model: model
+                  id: id
+                  moduleId: moduleId
+                baseAddress: baseAddress
+                displayName: displayName
+                name: name
+                id: id
+                deviceId: deviceId
+              createdAt: 2019-12-10T10:06:50.466318Z
+              warpPerspective: true
+              cameraId: cameraId
+              searchPatternImage:
+                imageFormat: imageFormat
+                file:
+                  createdAt: 2019-12-10T10:06:50.466318Z
+                  extension: extension
+                  filename: filename
+                  size: 4
+                  displayName: displayName
+                  checksum: checksum
+                  location: location
+                  originalFilename: originalFilename
+                  updatedAt: 2019-12-10T10:06:50.466318Z
+                horizontalResolution: 0.20253241
+                verticalResolution: 6.628464
+                width: 4
+                id: 7
+                url: url
+                fileId: 5
+                height: 3
+              name: name
+              scannerId: scannerId
+              debugUrl: debugUrl
+              id: 0
+              updatedAt: 2019-12-10T10:06:50.466318Z
+            index: 5
+            threshold: 8.251626
+            debugUrl: debugUrl
+            id: 7
+            templateMatchingConfigurationId: 4
+            layoutId: 4
+            jobTemplateId: 6
+            layoutName: layoutName
+          index: 0
           printSettings:
+            horizontalMirrorEnabled: true
             verticalMirrorEnabled: true
             enableM: true
-            numberOfPasses: 6
-            printSpeed: 5
+            printSpeed: 3
             enableK: true
-            dropSize: 4
-            jobTemplateInkjetLayoutId: 0
+            dropSize: 0
+            enableY: true
+            dataPageId: 2
+            printQuality: Draft
             cmykDirectEnabled: true
             enableC: true
-            multipass: true
-            horizontalMirrorEnabled: true
-            enableY: true
-            dataPageId: 8
-            id: 7
-          id: 7
-          layoutId: 0
-          jobTemplateId: 9
+          id: 9
+          layoutId: 9
+          jobTemplateId: 0
         - layout:
             createdAt: 2000-01-23T04:56:07.000+00:00
             canBeDeleted: true
@@ -2708,25 +2907,194 @@ components:
             id: 0
             updatedAt: 2000-01-23T04:56:07.000+00:00
           supportSide: supportSide
-          index: 9
+          curingSettings:
+            curingEnabled: true
+            fumeExtractorEnabled: true
+            level: 8
+            dualCuringEnabled: true
+            speed: 6
+          pinningSettings:
+            level: 1
+            enabled: true
+          autoPosSettings:
+          - isConfigured: true
+            displayName: displayName
+            templateMatchingConfiguration:
+              acquisitionPresetName: acquisitionPresetName
+              isConfigured: true
+              displayName: displayName
+              description: description
+              threshold: 4.652396432933246
+              searchArea:
+                dataType: dataType
+                x: 8
+                width: 3
+                "y": 7
+                height: 3
+              templateArea:
+                dataType: dataType
+                x: 8
+                width: 3
+                "y": 7
+                height: 3
+              scannerModule:
+                positionId: positionId
+                devices:
+                - deviceType: Camera
+                  serialNumber: serialNumber
+                  positionId: positionId
+                  displayName: displayName
+                  name: name
+                  description: description
+                  model: model
+                  id: id
+                  moduleId: moduleId
+                - deviceType: Camera
+                  serialNumber: serialNumber
+                  positionId: positionId
+                  displayName: displayName
+                  name: name
+                  description: description
+                  model: model
+                  id: id
+                  moduleId: moduleId
+                baseAddress: baseAddress
+                displayName: displayName
+                name: name
+                id: id
+                deviceId: deviceId
+              createdAt: 2019-12-10T10:06:50.466318Z
+              warpPerspective: true
+              cameraId: cameraId
+              searchPatternImage:
+                imageFormat: imageFormat
+                file:
+                  createdAt: 2019-12-10T10:06:50.466318Z
+                  extension: extension
+                  filename: filename
+                  size: 4
+                  displayName: displayName
+                  checksum: checksum
+                  location: location
+                  originalFilename: originalFilename
+                  updatedAt: 2019-12-10T10:06:50.466318Z
+                horizontalResolution: 0.20253241
+                verticalResolution: 6.628464
+                width: 4
+                id: 7
+                url: url
+                fileId: 5
+                height: 3
+              name: name
+              scannerId: scannerId
+              debugUrl: debugUrl
+              id: 0
+              updatedAt: 2019-12-10T10:06:50.466318Z
+            index: 5
+            threshold: 8.251626
+            debugUrl: debugUrl
+            id: 7
+            templateMatchingConfigurationId: 4
+            layoutId: 4
+            jobTemplateId: 6
+            layoutName: layoutName
+          - isConfigured: true
+            displayName: displayName
+            templateMatchingConfiguration:
+              acquisitionPresetName: acquisitionPresetName
+              isConfigured: true
+              displayName: displayName
+              description: description
+              threshold: 4.652396432933246
+              searchArea:
+                dataType: dataType
+                x: 8
+                width: 3
+                "y": 7
+                height: 3
+              templateArea:
+                dataType: dataType
+                x: 8
+                width: 3
+                "y": 7
+                height: 3
+              scannerModule:
+                positionId: positionId
+                devices:
+                - deviceType: Camera
+                  serialNumber: serialNumber
+                  positionId: positionId
+                  displayName: displayName
+                  name: name
+                  description: description
+                  model: model
+                  id: id
+                  moduleId: moduleId
+                - deviceType: Camera
+                  serialNumber: serialNumber
+                  positionId: positionId
+                  displayName: displayName
+                  name: name
+                  description: description
+                  model: model
+                  id: id
+                  moduleId: moduleId
+                baseAddress: baseAddress
+                displayName: displayName
+                name: name
+                id: id
+                deviceId: deviceId
+              createdAt: 2019-12-10T10:06:50.466318Z
+              warpPerspective: true
+              cameraId: cameraId
+              searchPatternImage:
+                imageFormat: imageFormat
+                file:
+                  createdAt: 2019-12-10T10:06:50.466318Z
+                  extension: extension
+                  filename: filename
+                  size: 4
+                  displayName: displayName
+                  checksum: checksum
+                  location: location
+                  originalFilename: originalFilename
+                  updatedAt: 2019-12-10T10:06:50.466318Z
+                horizontalResolution: 0.20253241
+                verticalResolution: 6.628464
+                width: 4
+                id: 7
+                url: url
+                fileId: 5
+                height: 3
+              name: name
+              scannerId: scannerId
+              debugUrl: debugUrl
+              id: 0
+              updatedAt: 2019-12-10T10:06:50.466318Z
+            index: 5
+            threshold: 8.251626
+            debugUrl: debugUrl
+            id: 7
+            templateMatchingConfigurationId: 4
+            layoutId: 4
+            jobTemplateId: 6
+            layoutName: layoutName
+          index: 0
           printSettings:
+            horizontalMirrorEnabled: true
             verticalMirrorEnabled: true
             enableM: true
-            numberOfPasses: 6
-            printSpeed: 5
+            printSpeed: 3
             enableK: true
-            dropSize: 4
-            jobTemplateInkjetLayoutId: 0
+            dropSize: 0
+            enableY: true
+            dataPageId: 2
+            printQuality: Draft
             cmykDirectEnabled: true
             enableC: true
-            multipass: true
-            horizontalMirrorEnabled: true
-            enableY: true
-            dataPageId: 8
-            id: 7
-          id: 7
-          layoutId: 0
-          jobTemplateId: 9
+          id: 9
+          layoutId: 9
+          jobTemplateId: 0
         ocrSettings:
         - supportSide: null
           runBeforeMark: true
@@ -2734,9 +3102,9 @@ components:
           ocrSettings:
             canBeDeleted: true
             languages: languages
-            rotation: 9.183123594773994
-            meanConfidenceThreshold: 8.761432466225475
-            threshold: 3
+            rotation: 3.7814124730767915
+            meanConfidenceThreshold: 3.111202833403195
+            threshold: 7
             pageSegmentationMode: OsdOnly
             roi:
               dataType: dataType
@@ -2751,24 +3119,24 @@ components:
             blackList: blackList
             scannerId: scannerId
             whiteList: whiteList
-            id: 9
-            multiply: 1
+            id: 5
+            multiply: 8
             matchPattern: matchPattern
             updatedAt: 2019-12-10T10:06:50.466318Z
           name: name
-          id: 6
+          id: 8
           sendWebhookNotification: true
-          ocrSettingsId: 8
-          jobTemplateId: 4
+          ocrSettingsId: 5
+          jobTemplateId: 0
         - supportSide: null
           runBeforeMark: true
           resultFieldName: resultFieldName
           ocrSettings:
             canBeDeleted: true
             languages: languages
-            rotation: 9.183123594773994
-            meanConfidenceThreshold: 8.761432466225475
-            threshold: 3
+            rotation: 3.7814124730767915
+            meanConfidenceThreshold: 3.111202833403195
+            threshold: 7
             pageSegmentationMode: OsdOnly
             roi:
               dataType: dataType
@@ -2783,15 +3151,15 @@ components:
             blackList: blackList
             scannerId: scannerId
             whiteList: whiteList
-            id: 9
-            multiply: 1
+            id: 5
+            multiply: 8
             matchPattern: matchPattern
             updatedAt: 2019-12-10T10:06:50.466318Z
           name: name
-          id: 6
+          id: 8
           sendWebhookNotification: true
-          ocrSettingsId: 8
-          jobTemplateId: 4
+          ocrSettingsId: 5
+          jobTemplateId: 0
         description: description
         readBackConfiguration:
           name: name
@@ -3068,6 +3436,7 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
@@ -3148,6 +3517,7 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
@@ -3232,6 +3602,7 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
@@ -3312,15 +3683,16 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
-          index: 4
+          index: 1
           mirrorX: true
           mirrorY: true
           id: 1
-          layoutId: 1
-          jobTemplateId: 4
+          layoutId: 4
+          jobTemplateId: 7
         - layout:
             createdAt: 2019-12-10T10:06:50.466318Z
             canBeDeleted: true
@@ -3582,6 +3954,7 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
@@ -3662,6 +4035,7 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
@@ -3746,6 +4120,7 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
@@ -3826,15 +4201,16 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
-          index: 4
+          index: 1
           mirrorX: true
           mirrorY: true
           id: 1
-          layoutId: 1
-          jobTemplateId: 4
+          layoutId: 4
+          jobTemplateId: 7
         expectedMarkDuration: 25:01:01.001
         createdAt: 2019-12-10T10:06:50.466318Z
         workingArea:
@@ -3866,9 +4242,9 @@ components:
           entities:
           - supportSide: supportSide
             positionId: positionId
-            index: 2
-            entityId: 1
-            markGroupId: 8
+            index: 1
+            entityId: 3
+            markGroupId: 9
             deviceId: deviceId
             entity:
               textHeightLimit: 9.018348186070783
@@ -3957,9 +4333,9 @@ components:
               imageDitherStep: 6.778324963048013
           - supportSide: supportSide
             positionId: positionId
-            index: 2
-            entityId: 1
-            markGroupId: 8
+            index: 1
+            entityId: 3
+            markGroupId: 9
             deviceId: deviceId
             entity:
               textHeightLimit: 9.018348186070783
@@ -4050,19 +4426,19 @@ components:
           name: name
           scannerId: scannerId
           description: description
-          index: 3
+          index: 8
           id: 4
           deviceId: deviceId
-          jobTemplateId: 0
+          jobTemplateId: 9
           expectedMarkDuration: 25:01:01.001
         - supportSide: supportSide
           positionId: positionId
           entities:
           - supportSide: supportSide
             positionId: positionId
-            index: 2
-            entityId: 1
-            markGroupId: 8
+            index: 1
+            entityId: 3
+            markGroupId: 9
             deviceId: deviceId
             entity:
               textHeightLimit: 9.018348186070783
@@ -4151,9 +4527,9 @@ components:
               imageDitherStep: 6.778324963048013
           - supportSide: supportSide
             positionId: positionId
-            index: 2
-            entityId: 1
-            markGroupId: 8
+            index: 1
+            entityId: 3
+            markGroupId: 9
             deviceId: deviceId
             entity:
               textHeightLimit: 9.018348186070783
@@ -4244,10 +4620,10 @@ components:
           name: name
           scannerId: scannerId
           description: description
-          index: 3
+          index: 8
           id: 4
           deviceId: deviceId
-          jobTemplateId: 0
+          jobTemplateId: 9
           expectedMarkDuration: 25:01:01.001
         name: name
         id: 0
@@ -4314,6 +4690,126 @@ components:
         autoPosEnabled:
           type: boolean
       type: object
+    JobTemplateInkjetLayoutAutoPosSettingsDto:
+      additionalProperties: false
+      example:
+        isConfigured: true
+        displayName: displayName
+        templateMatchingConfiguration:
+          acquisitionPresetName: acquisitionPresetName
+          isConfigured: true
+          displayName: displayName
+          description: description
+          threshold: 4.652396432933246
+          searchArea:
+            dataType: dataType
+            x: 8
+            width: 3
+            "y": 7
+            height: 3
+          templateArea:
+            dataType: dataType
+            x: 8
+            width: 3
+            "y": 7
+            height: 3
+          scannerModule:
+            positionId: positionId
+            devices:
+            - deviceType: Camera
+              serialNumber: serialNumber
+              positionId: positionId
+              displayName: displayName
+              name: name
+              description: description
+              model: model
+              id: id
+              moduleId: moduleId
+            - deviceType: Camera
+              serialNumber: serialNumber
+              positionId: positionId
+              displayName: displayName
+              name: name
+              description: description
+              model: model
+              id: id
+              moduleId: moduleId
+            baseAddress: baseAddress
+            displayName: displayName
+            name: name
+            id: id
+            deviceId: deviceId
+          createdAt: 2019-12-10T10:06:50.466318Z
+          warpPerspective: true
+          cameraId: cameraId
+          searchPatternImage:
+            imageFormat: imageFormat
+            file:
+              createdAt: 2019-12-10T10:06:50.466318Z
+              extension: extension
+              filename: filename
+              size: 4
+              displayName: displayName
+              checksum: checksum
+              location: location
+              originalFilename: originalFilename
+              updatedAt: 2019-12-10T10:06:50.466318Z
+            horizontalResolution: 0.20253241
+            verticalResolution: 6.628464
+            width: 4
+            id: 7
+            url: url
+            fileId: 5
+            height: 3
+          name: name
+          scannerId: scannerId
+          debugUrl: debugUrl
+          id: 0
+          updatedAt: 2019-12-10T10:06:50.466318Z
+        index: 5
+        threshold: 8.251626
+        debugUrl: debugUrl
+        id: 7
+        templateMatchingConfigurationId: 4
+        layoutId: 4
+        jobTemplateId: 6
+        layoutName: layoutName
+      properties:
+        id:
+          format: int32
+          type: integer
+        index:
+          format: int32
+          type: integer
+        layoutId:
+          format: int32
+          type: integer
+        jobTemplateId:
+          format: int32
+          type: integer
+        layoutName:
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          type: string
+        threshold:
+          format: float
+          nullable: true
+          type: number
+        debugUrl:
+          nullable: true
+          type: string
+        templateMatchingConfigurationId:
+          format: int32
+          nullable: true
+          type: integer
+        templateMatchingConfiguration:
+          $ref: '#/components/schemas/TemplateMatchingConfigurationDto'
+        isConfigured:
+          readOnly: true
+          type: boolean
+      type: object
     JobTemplateInkjetLayoutDto:
       additionalProperties: false
       example:
@@ -4339,25 +4835,194 @@ components:
           id: 0
           updatedAt: 2000-01-23T04:56:07.000+00:00
         supportSide: supportSide
-        index: 9
+        curingSettings:
+          curingEnabled: true
+          fumeExtractorEnabled: true
+          level: 8
+          dualCuringEnabled: true
+          speed: 6
+        pinningSettings:
+          level: 1
+          enabled: true
+        autoPosSettings:
+        - isConfigured: true
+          displayName: displayName
+          templateMatchingConfiguration:
+            acquisitionPresetName: acquisitionPresetName
+            isConfigured: true
+            displayName: displayName
+            description: description
+            threshold: 4.652396432933246
+            searchArea:
+              dataType: dataType
+              x: 8
+              width: 3
+              "y": 7
+              height: 3
+            templateArea:
+              dataType: dataType
+              x: 8
+              width: 3
+              "y": 7
+              height: 3
+            scannerModule:
+              positionId: positionId
+              devices:
+              - deviceType: Camera
+                serialNumber: serialNumber
+                positionId: positionId
+                displayName: displayName
+                name: name
+                description: description
+                model: model
+                id: id
+                moduleId: moduleId
+              - deviceType: Camera
+                serialNumber: serialNumber
+                positionId: positionId
+                displayName: displayName
+                name: name
+                description: description
+                model: model
+                id: id
+                moduleId: moduleId
+              baseAddress: baseAddress
+              displayName: displayName
+              name: name
+              id: id
+              deviceId: deviceId
+            createdAt: 2019-12-10T10:06:50.466318Z
+            warpPerspective: true
+            cameraId: cameraId
+            searchPatternImage:
+              imageFormat: imageFormat
+              file:
+                createdAt: 2019-12-10T10:06:50.466318Z
+                extension: extension
+                filename: filename
+                size: 4
+                displayName: displayName
+                checksum: checksum
+                location: location
+                originalFilename: originalFilename
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              horizontalResolution: 0.20253241
+              verticalResolution: 6.628464
+              width: 4
+              id: 7
+              url: url
+              fileId: 5
+              height: 3
+            name: name
+            scannerId: scannerId
+            debugUrl: debugUrl
+            id: 0
+            updatedAt: 2019-12-10T10:06:50.466318Z
+          index: 5
+          threshold: 8.251626
+          debugUrl: debugUrl
+          id: 7
+          templateMatchingConfigurationId: 4
+          layoutId: 4
+          jobTemplateId: 6
+          layoutName: layoutName
+        - isConfigured: true
+          displayName: displayName
+          templateMatchingConfiguration:
+            acquisitionPresetName: acquisitionPresetName
+            isConfigured: true
+            displayName: displayName
+            description: description
+            threshold: 4.652396432933246
+            searchArea:
+              dataType: dataType
+              x: 8
+              width: 3
+              "y": 7
+              height: 3
+            templateArea:
+              dataType: dataType
+              x: 8
+              width: 3
+              "y": 7
+              height: 3
+            scannerModule:
+              positionId: positionId
+              devices:
+              - deviceType: Camera
+                serialNumber: serialNumber
+                positionId: positionId
+                displayName: displayName
+                name: name
+                description: description
+                model: model
+                id: id
+                moduleId: moduleId
+              - deviceType: Camera
+                serialNumber: serialNumber
+                positionId: positionId
+                displayName: displayName
+                name: name
+                description: description
+                model: model
+                id: id
+                moduleId: moduleId
+              baseAddress: baseAddress
+              displayName: displayName
+              name: name
+              id: id
+              deviceId: deviceId
+            createdAt: 2019-12-10T10:06:50.466318Z
+            warpPerspective: true
+            cameraId: cameraId
+            searchPatternImage:
+              imageFormat: imageFormat
+              file:
+                createdAt: 2019-12-10T10:06:50.466318Z
+                extension: extension
+                filename: filename
+                size: 4
+                displayName: displayName
+                checksum: checksum
+                location: location
+                originalFilename: originalFilename
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              horizontalResolution: 0.20253241
+              verticalResolution: 6.628464
+              width: 4
+              id: 7
+              url: url
+              fileId: 5
+              height: 3
+            name: name
+            scannerId: scannerId
+            debugUrl: debugUrl
+            id: 0
+            updatedAt: 2019-12-10T10:06:50.466318Z
+          index: 5
+          threshold: 8.251626
+          debugUrl: debugUrl
+          id: 7
+          templateMatchingConfigurationId: 4
+          layoutId: 4
+          jobTemplateId: 6
+          layoutName: layoutName
+        index: 0
         printSettings:
+          horizontalMirrorEnabled: true
           verticalMirrorEnabled: true
           enableM: true
-          numberOfPasses: 6
-          printSpeed: 5
+          printSpeed: 3
           enableK: true
-          dropSize: 4
-          jobTemplateInkjetLayoutId: 0
+          dropSize: 0
+          enableY: true
+          dataPageId: 2
+          printQuality: Draft
           cmykDirectEnabled: true
           enableC: true
-          multipass: true
-          horizontalMirrorEnabled: true
-          enableY: true
-          dataPageId: 8
-          id: 7
-        id: 7
-        layoutId: 0
-        jobTemplateId: 9
+        id: 9
+        layoutId: 9
+        jobTemplateId: 0
       properties:
         id:
           format: int32
@@ -4376,8 +5041,17 @@ components:
         supportSide:
           nullable: true
           type: string
+        autoPosSettings:
+          items:
+            $ref: '#/components/schemas/JobTemplateInkjetLayoutAutoPosSettingsDto'
+          nullable: true
+          type: array
         printSettings:
           $ref: '#/components/schemas/PrintSettingsDto'
+        pinningSettings:
+          $ref: '#/components/schemas/PinningSettingsDto'
+        curingSettings:
+          $ref: '#/components/schemas/CuringSettingsDto'
       type: object
     JobTemplateLayoutAutoPosSettingsDto:
       additionalProperties: false
@@ -4459,6 +5133,7 @@ components:
         threshold: 6.519181
         debugUrl: debugUrl
         id: 3
+        templateMatchingConfigurationId: 4
         layoutId: 0
         jobTemplateId: 7
         layoutName: layoutName
@@ -4490,6 +5165,10 @@ components:
           type: string
         templateMatchingConfiguration:
           $ref: '#/components/schemas/TemplateMatchingConfigurationDto'
+        templateMatchingConfigurationId:
+          format: int32
+          nullable: true
+          type: integer
         isConfigured:
           readOnly: true
           type: boolean
@@ -4758,6 +5437,7 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
@@ -4838,6 +5518,7 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
@@ -4922,6 +5603,7 @@ components:
           threshold: 6.519181
           debugUrl: debugUrl
           id: 3
+          templateMatchingConfigurationId: 4
           layoutId: 0
           jobTemplateId: 7
           layoutName: layoutName
@@ -5002,15 +5684,16 @@ components:
           threshold: 6.519181
           debugUrl: debugUrl
           id: 3
+          templateMatchingConfigurationId: 4
           layoutId: 0
           jobTemplateId: 7
           layoutName: layoutName
-        index: 4
+        index: 1
         mirrorX: true
         mirrorY: true
         id: 1
-        layoutId: 1
-        jobTemplateId: 4
+        layoutId: 4
+        jobTemplateId: 7
       properties:
         id:
           format: int32
@@ -5050,9 +5733,9 @@ components:
         ocrSettings:
           canBeDeleted: true
           languages: languages
-          rotation: 9.183123594773994
-          meanConfidenceThreshold: 8.761432466225475
-          threshold: 3
+          rotation: 3.7814124730767915
+          meanConfidenceThreshold: 3.111202833403195
+          threshold: 7
           pageSegmentationMode: OsdOnly
           roi:
             dataType: dataType
@@ -5067,15 +5750,15 @@ components:
           blackList: blackList
           scannerId: scannerId
           whiteList: whiteList
-          id: 9
-          multiply: 1
+          id: 5
+          multiply: 8
           matchPattern: matchPattern
           updatedAt: 2019-12-10T10:06:50.466318Z
         name: name
-        id: 6
+        id: 8
         sendWebhookNotification: true
-        ocrSettingsId: 8
-        jobTemplateId: 4
+        ocrSettingsId: 5
+        jobTemplateId: 0
       properties:
         id:
           format: int32
@@ -5418,6 +6101,7 @@ components:
           threshold: 6.519181
           debugUrl: debugUrl
           id: 3
+          templateMatchingConfigurationId: 4
           layoutId: 0
           jobTemplateId: 7
           layoutName: layoutName
@@ -5498,6 +6182,7 @@ components:
           threshold: 6.519181
           debugUrl: debugUrl
           id: 3
+          templateMatchingConfigurationId: 4
           layoutId: 0
           jobTemplateId: 7
           layoutName: layoutName
@@ -5616,9 +6301,9 @@ components:
       example:
         supportSide: supportSide
         positionId: positionId
-        index: 2
-        entityId: 1
-        markGroupId: 8
+        index: 1
+        entityId: 3
+        markGroupId: 9
         deviceId: deviceId
         entity:
           textHeightLimit: 9.018348186070783
@@ -5874,9 +6559,9 @@ components:
       example:
         canBeDeleted: true
         languages: languages
-        rotation: 9.183123594773994
-        meanConfidenceThreshold: 8.761432466225475
-        threshold: 3
+        rotation: 3.7814124730767915
+        meanConfidenceThreshold: 3.111202833403195
+        threshold: 7
         pageSegmentationMode: OsdOnly
         roi:
           dataType: dataType
@@ -5891,8 +6576,8 @@ components:
         blackList: blackList
         scannerId: scannerId
         whiteList: whiteList
-        id: 9
-        multiply: 1
+        id: 5
+        multiply: 8
         matchPattern: matchPattern
         updatedAt: 2019-12-10T10:06:50.466318Z
       properties:
@@ -6201,31 +6886,40 @@ components:
       - Stacker2Home
       - Stacker2TubePresent
       type: string
+    PinningSettingsDto:
+      additionalProperties: false
+      example:
+        level: 1
+        enabled: true
+      properties:
+        enabled:
+          type: boolean
+        level:
+          format: int32
+          type: integer
+      type: object
+    PrintQuality:
+      enum:
+      - Draft
+      - Low
+      - Standard
+      - High
+      type: string
     PrintSettingsDto:
       additionalProperties: false
       example:
+        horizontalMirrorEnabled: true
         verticalMirrorEnabled: true
         enableM: true
-        numberOfPasses: 6
-        printSpeed: 5
+        printSpeed: 3
         enableK: true
-        dropSize: 4
-        jobTemplateInkjetLayoutId: 0
+        dropSize: 0
+        enableY: true
+        dataPageId: 2
+        printQuality: Draft
         cmykDirectEnabled: true
         enableC: true
-        multipass: true
-        horizontalMirrorEnabled: true
-        enableY: true
-        dataPageId: 8
-        id: 7
       properties:
-        jobTemplateInkjetLayoutId:
-          format: int32
-          nullable: true
-          type: integer
-        id:
-          format: int32
-          type: integer
         printSpeed:
           format: int32
           type: integer
@@ -6246,14 +6940,11 @@ components:
         dropSize:
           format: int32
           type: integer
-        multipass:
-          type: boolean
-        numberOfPasses:
-          format: int32
-          type: integer
         dataPageId:
           format: int32
           type: integer
+        printQuality:
+          $ref: '#/components/schemas/PrintQuality'
       type: object
     ReadBackConfigurationDto:
       additionalProperties: false
@@ -6775,9 +7466,9 @@ components:
         entities:
         - supportSide: supportSide
           positionId: positionId
-          index: 2
-          entityId: 1
-          markGroupId: 8
+          index: 1
+          entityId: 3
+          markGroupId: 9
           deviceId: deviceId
           entity:
             textHeightLimit: 9.018348186070783
@@ -6866,9 +7557,9 @@ components:
             imageDitherStep: 6.778324963048013
         - supportSide: supportSide
           positionId: positionId
-          index: 2
-          entityId: 1
-          markGroupId: 8
+          index: 1
+          entityId: 3
+          markGroupId: 9
           deviceId: deviceId
           entity:
             textHeightLimit: 9.018348186070783
@@ -6959,10 +7650,10 @@ components:
         name: name
         scannerId: scannerId
         description: description
-        index: 3
+        index: 8
         id: 4
         deviceId: deviceId
-        jobTemplateId: 0
+        jobTemplateId: 9
         expectedMarkDuration: 25:01:01.001
       properties:
         id:
@@ -7397,6 +8088,7 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
@@ -7477,6 +8169,7 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
@@ -7561,6 +8254,7 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
@@ -7641,15 +8335,16 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
-          index: 4
+          index: 1
           mirrorX: true
           mirrorY: true
           id: 1
-          layoutId: 1
-          jobTemplateId: 4
+          layoutId: 4
+          jobTemplateId: 7
         - layout:
             createdAt: 2019-12-10T10:06:50.466318Z
             canBeDeleted: true
@@ -7911,6 +8606,7 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
@@ -7991,6 +8687,7 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
@@ -8075,6 +8772,7 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
@@ -8155,15 +8853,16 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
-          index: 4
+          index: 1
           mirrorX: true
           mirrorY: true
           id: 1
-          layoutId: 1
-          jobTemplateId: 4
+          layoutId: 4
+          jobTemplateId: 7
       properties:
         items:
           items:
@@ -8187,9 +8886,9 @@ components:
     SearchJobTemplatesResultDto:
       additionalProperties: false
       example:
-        total: 5
+        total: 7
         pageSize: 5
-        page: 0
+        page: 9
         items:
         - chipEncodingConfiguration:
             readerAccessType: PcScGateway
@@ -8224,25 +8923,194 @@ components:
               id: 0
               updatedAt: 2000-01-23T04:56:07.000+00:00
             supportSide: supportSide
-            index: 9
+            curingSettings:
+              curingEnabled: true
+              fumeExtractorEnabled: true
+              level: 8
+              dualCuringEnabled: true
+              speed: 6
+            pinningSettings:
+              level: 1
+              enabled: true
+            autoPosSettings:
+            - isConfigured: true
+              displayName: displayName
+              templateMatchingConfiguration:
+                acquisitionPresetName: acquisitionPresetName
+                isConfigured: true
+                displayName: displayName
+                description: description
+                threshold: 4.652396432933246
+                searchArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                templateArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                scannerModule:
+                  positionId: positionId
+                  devices:
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  baseAddress: baseAddress
+                  displayName: displayName
+                  name: name
+                  id: id
+                  deviceId: deviceId
+                createdAt: 2019-12-10T10:06:50.466318Z
+                warpPerspective: true
+                cameraId: cameraId
+                searchPatternImage:
+                  imageFormat: imageFormat
+                  file:
+                    createdAt: 2019-12-10T10:06:50.466318Z
+                    extension: extension
+                    filename: filename
+                    size: 4
+                    displayName: displayName
+                    checksum: checksum
+                    location: location
+                    originalFilename: originalFilename
+                    updatedAt: 2019-12-10T10:06:50.466318Z
+                  horizontalResolution: 0.20253241
+                  verticalResolution: 6.628464
+                  width: 4
+                  id: 7
+                  url: url
+                  fileId: 5
+                  height: 3
+                name: name
+                scannerId: scannerId
+                debugUrl: debugUrl
+                id: 0
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              index: 5
+              threshold: 8.251626
+              debugUrl: debugUrl
+              id: 7
+              templateMatchingConfigurationId: 4
+              layoutId: 4
+              jobTemplateId: 6
+              layoutName: layoutName
+            - isConfigured: true
+              displayName: displayName
+              templateMatchingConfiguration:
+                acquisitionPresetName: acquisitionPresetName
+                isConfigured: true
+                displayName: displayName
+                description: description
+                threshold: 4.652396432933246
+                searchArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                templateArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                scannerModule:
+                  positionId: positionId
+                  devices:
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  baseAddress: baseAddress
+                  displayName: displayName
+                  name: name
+                  id: id
+                  deviceId: deviceId
+                createdAt: 2019-12-10T10:06:50.466318Z
+                warpPerspective: true
+                cameraId: cameraId
+                searchPatternImage:
+                  imageFormat: imageFormat
+                  file:
+                    createdAt: 2019-12-10T10:06:50.466318Z
+                    extension: extension
+                    filename: filename
+                    size: 4
+                    displayName: displayName
+                    checksum: checksum
+                    location: location
+                    originalFilename: originalFilename
+                    updatedAt: 2019-12-10T10:06:50.466318Z
+                  horizontalResolution: 0.20253241
+                  verticalResolution: 6.628464
+                  width: 4
+                  id: 7
+                  url: url
+                  fileId: 5
+                  height: 3
+                name: name
+                scannerId: scannerId
+                debugUrl: debugUrl
+                id: 0
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              index: 5
+              threshold: 8.251626
+              debugUrl: debugUrl
+              id: 7
+              templateMatchingConfigurationId: 4
+              layoutId: 4
+              jobTemplateId: 6
+              layoutName: layoutName
+            index: 0
             printSettings:
+              horizontalMirrorEnabled: true
               verticalMirrorEnabled: true
               enableM: true
-              numberOfPasses: 6
-              printSpeed: 5
+              printSpeed: 3
               enableK: true
-              dropSize: 4
-              jobTemplateInkjetLayoutId: 0
+              dropSize: 0
+              enableY: true
+              dataPageId: 2
+              printQuality: Draft
               cmykDirectEnabled: true
               enableC: true
-              multipass: true
-              horizontalMirrorEnabled: true
-              enableY: true
-              dataPageId: 8
-              id: 7
-            id: 7
-            layoutId: 0
-            jobTemplateId: 9
+            id: 9
+            layoutId: 9
+            jobTemplateId: 0
           - layout:
               createdAt: 2000-01-23T04:56:07.000+00:00
               canBeDeleted: true
@@ -8265,25 +9133,194 @@ components:
               id: 0
               updatedAt: 2000-01-23T04:56:07.000+00:00
             supportSide: supportSide
-            index: 9
+            curingSettings:
+              curingEnabled: true
+              fumeExtractorEnabled: true
+              level: 8
+              dualCuringEnabled: true
+              speed: 6
+            pinningSettings:
+              level: 1
+              enabled: true
+            autoPosSettings:
+            - isConfigured: true
+              displayName: displayName
+              templateMatchingConfiguration:
+                acquisitionPresetName: acquisitionPresetName
+                isConfigured: true
+                displayName: displayName
+                description: description
+                threshold: 4.652396432933246
+                searchArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                templateArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                scannerModule:
+                  positionId: positionId
+                  devices:
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  baseAddress: baseAddress
+                  displayName: displayName
+                  name: name
+                  id: id
+                  deviceId: deviceId
+                createdAt: 2019-12-10T10:06:50.466318Z
+                warpPerspective: true
+                cameraId: cameraId
+                searchPatternImage:
+                  imageFormat: imageFormat
+                  file:
+                    createdAt: 2019-12-10T10:06:50.466318Z
+                    extension: extension
+                    filename: filename
+                    size: 4
+                    displayName: displayName
+                    checksum: checksum
+                    location: location
+                    originalFilename: originalFilename
+                    updatedAt: 2019-12-10T10:06:50.466318Z
+                  horizontalResolution: 0.20253241
+                  verticalResolution: 6.628464
+                  width: 4
+                  id: 7
+                  url: url
+                  fileId: 5
+                  height: 3
+                name: name
+                scannerId: scannerId
+                debugUrl: debugUrl
+                id: 0
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              index: 5
+              threshold: 8.251626
+              debugUrl: debugUrl
+              id: 7
+              templateMatchingConfigurationId: 4
+              layoutId: 4
+              jobTemplateId: 6
+              layoutName: layoutName
+            - isConfigured: true
+              displayName: displayName
+              templateMatchingConfiguration:
+                acquisitionPresetName: acquisitionPresetName
+                isConfigured: true
+                displayName: displayName
+                description: description
+                threshold: 4.652396432933246
+                searchArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                templateArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                scannerModule:
+                  positionId: positionId
+                  devices:
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  baseAddress: baseAddress
+                  displayName: displayName
+                  name: name
+                  id: id
+                  deviceId: deviceId
+                createdAt: 2019-12-10T10:06:50.466318Z
+                warpPerspective: true
+                cameraId: cameraId
+                searchPatternImage:
+                  imageFormat: imageFormat
+                  file:
+                    createdAt: 2019-12-10T10:06:50.466318Z
+                    extension: extension
+                    filename: filename
+                    size: 4
+                    displayName: displayName
+                    checksum: checksum
+                    location: location
+                    originalFilename: originalFilename
+                    updatedAt: 2019-12-10T10:06:50.466318Z
+                  horizontalResolution: 0.20253241
+                  verticalResolution: 6.628464
+                  width: 4
+                  id: 7
+                  url: url
+                  fileId: 5
+                  height: 3
+                name: name
+                scannerId: scannerId
+                debugUrl: debugUrl
+                id: 0
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              index: 5
+              threshold: 8.251626
+              debugUrl: debugUrl
+              id: 7
+              templateMatchingConfigurationId: 4
+              layoutId: 4
+              jobTemplateId: 6
+              layoutName: layoutName
+            index: 0
             printSettings:
+              horizontalMirrorEnabled: true
               verticalMirrorEnabled: true
               enableM: true
-              numberOfPasses: 6
-              printSpeed: 5
+              printSpeed: 3
               enableK: true
-              dropSize: 4
-              jobTemplateInkjetLayoutId: 0
+              dropSize: 0
+              enableY: true
+              dataPageId: 2
+              printQuality: Draft
               cmykDirectEnabled: true
               enableC: true
-              multipass: true
-              horizontalMirrorEnabled: true
-              enableY: true
-              dataPageId: 8
-              id: 7
-            id: 7
-            layoutId: 0
-            jobTemplateId: 9
+            id: 9
+            layoutId: 9
+            jobTemplateId: 0
           ocrSettings:
           - supportSide: null
             runBeforeMark: true
@@ -8291,9 +9328,9 @@ components:
             ocrSettings:
               canBeDeleted: true
               languages: languages
-              rotation: 9.183123594773994
-              meanConfidenceThreshold: 8.761432466225475
-              threshold: 3
+              rotation: 3.7814124730767915
+              meanConfidenceThreshold: 3.111202833403195
+              threshold: 7
               pageSegmentationMode: OsdOnly
               roi:
                 dataType: dataType
@@ -8308,24 +9345,24 @@ components:
               blackList: blackList
               scannerId: scannerId
               whiteList: whiteList
-              id: 9
-              multiply: 1
+              id: 5
+              multiply: 8
               matchPattern: matchPattern
               updatedAt: 2019-12-10T10:06:50.466318Z
             name: name
-            id: 6
+            id: 8
             sendWebhookNotification: true
-            ocrSettingsId: 8
-            jobTemplateId: 4
+            ocrSettingsId: 5
+            jobTemplateId: 0
           - supportSide: null
             runBeforeMark: true
             resultFieldName: resultFieldName
             ocrSettings:
               canBeDeleted: true
               languages: languages
-              rotation: 9.183123594773994
-              meanConfidenceThreshold: 8.761432466225475
-              threshold: 3
+              rotation: 3.7814124730767915
+              meanConfidenceThreshold: 3.111202833403195
+              threshold: 7
               pageSegmentationMode: OsdOnly
               roi:
                 dataType: dataType
@@ -8340,15 +9377,15 @@ components:
               blackList: blackList
               scannerId: scannerId
               whiteList: whiteList
-              id: 9
-              multiply: 1
+              id: 5
+              multiply: 8
               matchPattern: matchPattern
               updatedAt: 2019-12-10T10:06:50.466318Z
             name: name
-            id: 6
+            id: 8
             sendWebhookNotification: true
-            ocrSettingsId: 8
-            jobTemplateId: 4
+            ocrSettingsId: 5
+            jobTemplateId: 0
           description: description
           readBackConfiguration:
             name: name
@@ -8625,6 +9662,7 @@ components:
                 threshold: 6.519181
                 debugUrl: debugUrl
                 id: 3
+                templateMatchingConfigurationId: 4
                 layoutId: 0
                 jobTemplateId: 7
                 layoutName: layoutName
@@ -8705,6 +9743,7 @@ components:
                 threshold: 6.519181
                 debugUrl: debugUrl
                 id: 3
+                templateMatchingConfigurationId: 4
                 layoutId: 0
                 jobTemplateId: 7
                 layoutName: layoutName
@@ -8789,6 +9828,7 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
@@ -8869,15 +9909,16 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
-            index: 4
+            index: 1
             mirrorX: true
             mirrorY: true
             id: 1
-            layoutId: 1
-            jobTemplateId: 4
+            layoutId: 4
+            jobTemplateId: 7
           - layout:
               createdAt: 2019-12-10T10:06:50.466318Z
               canBeDeleted: true
@@ -9139,6 +10180,7 @@ components:
                 threshold: 6.519181
                 debugUrl: debugUrl
                 id: 3
+                templateMatchingConfigurationId: 4
                 layoutId: 0
                 jobTemplateId: 7
                 layoutName: layoutName
@@ -9219,6 +10261,7 @@ components:
                 threshold: 6.519181
                 debugUrl: debugUrl
                 id: 3
+                templateMatchingConfigurationId: 4
                 layoutId: 0
                 jobTemplateId: 7
                 layoutName: layoutName
@@ -9303,6 +10346,7 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
@@ -9383,15 +10427,16 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
-            index: 4
+            index: 1
             mirrorX: true
             mirrorY: true
             id: 1
-            layoutId: 1
-            jobTemplateId: 4
+            layoutId: 4
+            jobTemplateId: 7
           expectedMarkDuration: 25:01:01.001
           createdAt: 2019-12-10T10:06:50.466318Z
           workingArea:
@@ -9423,9 +10468,9 @@ components:
             entities:
             - supportSide: supportSide
               positionId: positionId
-              index: 2
-              entityId: 1
-              markGroupId: 8
+              index: 1
+              entityId: 3
+              markGroupId: 9
               deviceId: deviceId
               entity:
                 textHeightLimit: 9.018348186070783
@@ -9514,9 +10559,9 @@ components:
                 imageDitherStep: 6.778324963048013
             - supportSide: supportSide
               positionId: positionId
-              index: 2
-              entityId: 1
-              markGroupId: 8
+              index: 1
+              entityId: 3
+              markGroupId: 9
               deviceId: deviceId
               entity:
                 textHeightLimit: 9.018348186070783
@@ -9607,19 +10652,19 @@ components:
             name: name
             scannerId: scannerId
             description: description
-            index: 3
+            index: 8
             id: 4
             deviceId: deviceId
-            jobTemplateId: 0
+            jobTemplateId: 9
             expectedMarkDuration: 25:01:01.001
           - supportSide: supportSide
             positionId: positionId
             entities:
             - supportSide: supportSide
               positionId: positionId
-              index: 2
-              entityId: 1
-              markGroupId: 8
+              index: 1
+              entityId: 3
+              markGroupId: 9
               deviceId: deviceId
               entity:
                 textHeightLimit: 9.018348186070783
@@ -9708,9 +10753,9 @@ components:
                 imageDitherStep: 6.778324963048013
             - supportSide: supportSide
               positionId: positionId
-              index: 2
-              entityId: 1
-              markGroupId: 8
+              index: 1
+              entityId: 3
+              markGroupId: 9
               deviceId: deviceId
               entity:
                 textHeightLimit: 9.018348186070783
@@ -9801,10 +10846,10 @@ components:
             name: name
             scannerId: scannerId
             description: description
-            index: 3
+            index: 8
             id: 4
             deviceId: deviceId
-            jobTemplateId: 0
+            jobTemplateId: 9
             expectedMarkDuration: 25:01:01.001
           name: name
           id: 0
@@ -9843,25 +10888,194 @@ components:
               id: 0
               updatedAt: 2000-01-23T04:56:07.000+00:00
             supportSide: supportSide
-            index: 9
+            curingSettings:
+              curingEnabled: true
+              fumeExtractorEnabled: true
+              level: 8
+              dualCuringEnabled: true
+              speed: 6
+            pinningSettings:
+              level: 1
+              enabled: true
+            autoPosSettings:
+            - isConfigured: true
+              displayName: displayName
+              templateMatchingConfiguration:
+                acquisitionPresetName: acquisitionPresetName
+                isConfigured: true
+                displayName: displayName
+                description: description
+                threshold: 4.652396432933246
+                searchArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                templateArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                scannerModule:
+                  positionId: positionId
+                  devices:
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  baseAddress: baseAddress
+                  displayName: displayName
+                  name: name
+                  id: id
+                  deviceId: deviceId
+                createdAt: 2019-12-10T10:06:50.466318Z
+                warpPerspective: true
+                cameraId: cameraId
+                searchPatternImage:
+                  imageFormat: imageFormat
+                  file:
+                    createdAt: 2019-12-10T10:06:50.466318Z
+                    extension: extension
+                    filename: filename
+                    size: 4
+                    displayName: displayName
+                    checksum: checksum
+                    location: location
+                    originalFilename: originalFilename
+                    updatedAt: 2019-12-10T10:06:50.466318Z
+                  horizontalResolution: 0.20253241
+                  verticalResolution: 6.628464
+                  width: 4
+                  id: 7
+                  url: url
+                  fileId: 5
+                  height: 3
+                name: name
+                scannerId: scannerId
+                debugUrl: debugUrl
+                id: 0
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              index: 5
+              threshold: 8.251626
+              debugUrl: debugUrl
+              id: 7
+              templateMatchingConfigurationId: 4
+              layoutId: 4
+              jobTemplateId: 6
+              layoutName: layoutName
+            - isConfigured: true
+              displayName: displayName
+              templateMatchingConfiguration:
+                acquisitionPresetName: acquisitionPresetName
+                isConfigured: true
+                displayName: displayName
+                description: description
+                threshold: 4.652396432933246
+                searchArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                templateArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                scannerModule:
+                  positionId: positionId
+                  devices:
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  baseAddress: baseAddress
+                  displayName: displayName
+                  name: name
+                  id: id
+                  deviceId: deviceId
+                createdAt: 2019-12-10T10:06:50.466318Z
+                warpPerspective: true
+                cameraId: cameraId
+                searchPatternImage:
+                  imageFormat: imageFormat
+                  file:
+                    createdAt: 2019-12-10T10:06:50.466318Z
+                    extension: extension
+                    filename: filename
+                    size: 4
+                    displayName: displayName
+                    checksum: checksum
+                    location: location
+                    originalFilename: originalFilename
+                    updatedAt: 2019-12-10T10:06:50.466318Z
+                  horizontalResolution: 0.20253241
+                  verticalResolution: 6.628464
+                  width: 4
+                  id: 7
+                  url: url
+                  fileId: 5
+                  height: 3
+                name: name
+                scannerId: scannerId
+                debugUrl: debugUrl
+                id: 0
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              index: 5
+              threshold: 8.251626
+              debugUrl: debugUrl
+              id: 7
+              templateMatchingConfigurationId: 4
+              layoutId: 4
+              jobTemplateId: 6
+              layoutName: layoutName
+            index: 0
             printSettings:
+              horizontalMirrorEnabled: true
               verticalMirrorEnabled: true
               enableM: true
-              numberOfPasses: 6
-              printSpeed: 5
+              printSpeed: 3
               enableK: true
-              dropSize: 4
-              jobTemplateInkjetLayoutId: 0
+              dropSize: 0
+              enableY: true
+              dataPageId: 2
+              printQuality: Draft
               cmykDirectEnabled: true
               enableC: true
-              multipass: true
-              horizontalMirrorEnabled: true
-              enableY: true
-              dataPageId: 8
-              id: 7
-            id: 7
-            layoutId: 0
-            jobTemplateId: 9
+            id: 9
+            layoutId: 9
+            jobTemplateId: 0
           - layout:
               createdAt: 2000-01-23T04:56:07.000+00:00
               canBeDeleted: true
@@ -9884,25 +11098,194 @@ components:
               id: 0
               updatedAt: 2000-01-23T04:56:07.000+00:00
             supportSide: supportSide
-            index: 9
+            curingSettings:
+              curingEnabled: true
+              fumeExtractorEnabled: true
+              level: 8
+              dualCuringEnabled: true
+              speed: 6
+            pinningSettings:
+              level: 1
+              enabled: true
+            autoPosSettings:
+            - isConfigured: true
+              displayName: displayName
+              templateMatchingConfiguration:
+                acquisitionPresetName: acquisitionPresetName
+                isConfigured: true
+                displayName: displayName
+                description: description
+                threshold: 4.652396432933246
+                searchArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                templateArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                scannerModule:
+                  positionId: positionId
+                  devices:
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  baseAddress: baseAddress
+                  displayName: displayName
+                  name: name
+                  id: id
+                  deviceId: deviceId
+                createdAt: 2019-12-10T10:06:50.466318Z
+                warpPerspective: true
+                cameraId: cameraId
+                searchPatternImage:
+                  imageFormat: imageFormat
+                  file:
+                    createdAt: 2019-12-10T10:06:50.466318Z
+                    extension: extension
+                    filename: filename
+                    size: 4
+                    displayName: displayName
+                    checksum: checksum
+                    location: location
+                    originalFilename: originalFilename
+                    updatedAt: 2019-12-10T10:06:50.466318Z
+                  horizontalResolution: 0.20253241
+                  verticalResolution: 6.628464
+                  width: 4
+                  id: 7
+                  url: url
+                  fileId: 5
+                  height: 3
+                name: name
+                scannerId: scannerId
+                debugUrl: debugUrl
+                id: 0
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              index: 5
+              threshold: 8.251626
+              debugUrl: debugUrl
+              id: 7
+              templateMatchingConfigurationId: 4
+              layoutId: 4
+              jobTemplateId: 6
+              layoutName: layoutName
+            - isConfigured: true
+              displayName: displayName
+              templateMatchingConfiguration:
+                acquisitionPresetName: acquisitionPresetName
+                isConfigured: true
+                displayName: displayName
+                description: description
+                threshold: 4.652396432933246
+                searchArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                templateArea:
+                  dataType: dataType
+                  x: 8
+                  width: 3
+                  "y": 7
+                  height: 3
+                scannerModule:
+                  positionId: positionId
+                  devices:
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  - deviceType: Camera
+                    serialNumber: serialNumber
+                    positionId: positionId
+                    displayName: displayName
+                    name: name
+                    description: description
+                    model: model
+                    id: id
+                    moduleId: moduleId
+                  baseAddress: baseAddress
+                  displayName: displayName
+                  name: name
+                  id: id
+                  deviceId: deviceId
+                createdAt: 2019-12-10T10:06:50.466318Z
+                warpPerspective: true
+                cameraId: cameraId
+                searchPatternImage:
+                  imageFormat: imageFormat
+                  file:
+                    createdAt: 2019-12-10T10:06:50.466318Z
+                    extension: extension
+                    filename: filename
+                    size: 4
+                    displayName: displayName
+                    checksum: checksum
+                    location: location
+                    originalFilename: originalFilename
+                    updatedAt: 2019-12-10T10:06:50.466318Z
+                  horizontalResolution: 0.20253241
+                  verticalResolution: 6.628464
+                  width: 4
+                  id: 7
+                  url: url
+                  fileId: 5
+                  height: 3
+                name: name
+                scannerId: scannerId
+                debugUrl: debugUrl
+                id: 0
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              index: 5
+              threshold: 8.251626
+              debugUrl: debugUrl
+              id: 7
+              templateMatchingConfigurationId: 4
+              layoutId: 4
+              jobTemplateId: 6
+              layoutName: layoutName
+            index: 0
             printSettings:
+              horizontalMirrorEnabled: true
               verticalMirrorEnabled: true
               enableM: true
-              numberOfPasses: 6
-              printSpeed: 5
+              printSpeed: 3
               enableK: true
-              dropSize: 4
-              jobTemplateInkjetLayoutId: 0
+              dropSize: 0
+              enableY: true
+              dataPageId: 2
+              printQuality: Draft
               cmykDirectEnabled: true
               enableC: true
-              multipass: true
-              horizontalMirrorEnabled: true
-              enableY: true
-              dataPageId: 8
-              id: 7
-            id: 7
-            layoutId: 0
-            jobTemplateId: 9
+            id: 9
+            layoutId: 9
+            jobTemplateId: 0
           ocrSettings:
           - supportSide: null
             runBeforeMark: true
@@ -9910,9 +11293,9 @@ components:
             ocrSettings:
               canBeDeleted: true
               languages: languages
-              rotation: 9.183123594773994
-              meanConfidenceThreshold: 8.761432466225475
-              threshold: 3
+              rotation: 3.7814124730767915
+              meanConfidenceThreshold: 3.111202833403195
+              threshold: 7
               pageSegmentationMode: OsdOnly
               roi:
                 dataType: dataType
@@ -9927,24 +11310,24 @@ components:
               blackList: blackList
               scannerId: scannerId
               whiteList: whiteList
-              id: 9
-              multiply: 1
+              id: 5
+              multiply: 8
               matchPattern: matchPattern
               updatedAt: 2019-12-10T10:06:50.466318Z
             name: name
-            id: 6
+            id: 8
             sendWebhookNotification: true
-            ocrSettingsId: 8
-            jobTemplateId: 4
+            ocrSettingsId: 5
+            jobTemplateId: 0
           - supportSide: null
             runBeforeMark: true
             resultFieldName: resultFieldName
             ocrSettings:
               canBeDeleted: true
               languages: languages
-              rotation: 9.183123594773994
-              meanConfidenceThreshold: 8.761432466225475
-              threshold: 3
+              rotation: 3.7814124730767915
+              meanConfidenceThreshold: 3.111202833403195
+              threshold: 7
               pageSegmentationMode: OsdOnly
               roi:
                 dataType: dataType
@@ -9959,15 +11342,15 @@ components:
               blackList: blackList
               scannerId: scannerId
               whiteList: whiteList
-              id: 9
-              multiply: 1
+              id: 5
+              multiply: 8
               matchPattern: matchPattern
               updatedAt: 2019-12-10T10:06:50.466318Z
             name: name
-            id: 6
+            id: 8
             sendWebhookNotification: true
-            ocrSettingsId: 8
-            jobTemplateId: 4
+            ocrSettingsId: 5
+            jobTemplateId: 0
           description: description
           readBackConfiguration:
             name: name
@@ -10244,6 +11627,7 @@ components:
                 threshold: 6.519181
                 debugUrl: debugUrl
                 id: 3
+                templateMatchingConfigurationId: 4
                 layoutId: 0
                 jobTemplateId: 7
                 layoutName: layoutName
@@ -10324,6 +11708,7 @@ components:
                 threshold: 6.519181
                 debugUrl: debugUrl
                 id: 3
+                templateMatchingConfigurationId: 4
                 layoutId: 0
                 jobTemplateId: 7
                 layoutName: layoutName
@@ -10408,6 +11793,7 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
@@ -10488,15 +11874,16 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
-            index: 4
+            index: 1
             mirrorX: true
             mirrorY: true
             id: 1
-            layoutId: 1
-            jobTemplateId: 4
+            layoutId: 4
+            jobTemplateId: 7
           - layout:
               createdAt: 2019-12-10T10:06:50.466318Z
               canBeDeleted: true
@@ -10758,6 +12145,7 @@ components:
                 threshold: 6.519181
                 debugUrl: debugUrl
                 id: 3
+                templateMatchingConfigurationId: 4
                 layoutId: 0
                 jobTemplateId: 7
                 layoutName: layoutName
@@ -10838,6 +12226,7 @@ components:
                 threshold: 6.519181
                 debugUrl: debugUrl
                 id: 3
+                templateMatchingConfigurationId: 4
                 layoutId: 0
                 jobTemplateId: 7
                 layoutName: layoutName
@@ -10922,6 +12311,7 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
@@ -11002,15 +12392,16 @@ components:
               threshold: 6.519181
               debugUrl: debugUrl
               id: 3
+              templateMatchingConfigurationId: 4
               layoutId: 0
               jobTemplateId: 7
               layoutName: layoutName
-            index: 4
+            index: 1
             mirrorX: true
             mirrorY: true
             id: 1
-            layoutId: 1
-            jobTemplateId: 4
+            layoutId: 4
+            jobTemplateId: 7
           expectedMarkDuration: 25:01:01.001
           createdAt: 2019-12-10T10:06:50.466318Z
           workingArea:
@@ -11042,9 +12433,9 @@ components:
             entities:
             - supportSide: supportSide
               positionId: positionId
-              index: 2
-              entityId: 1
-              markGroupId: 8
+              index: 1
+              entityId: 3
+              markGroupId: 9
               deviceId: deviceId
               entity:
                 textHeightLimit: 9.018348186070783
@@ -11133,9 +12524,9 @@ components:
                 imageDitherStep: 6.778324963048013
             - supportSide: supportSide
               positionId: positionId
-              index: 2
-              entityId: 1
-              markGroupId: 8
+              index: 1
+              entityId: 3
+              markGroupId: 9
               deviceId: deviceId
               entity:
                 textHeightLimit: 9.018348186070783
@@ -11226,19 +12617,19 @@ components:
             name: name
             scannerId: scannerId
             description: description
-            index: 3
+            index: 8
             id: 4
             deviceId: deviceId
-            jobTemplateId: 0
+            jobTemplateId: 9
             expectedMarkDuration: 25:01:01.001
           - supportSide: supportSide
             positionId: positionId
             entities:
             - supportSide: supportSide
               positionId: positionId
-              index: 2
-              entityId: 1
-              markGroupId: 8
+              index: 1
+              entityId: 3
+              markGroupId: 9
               deviceId: deviceId
               entity:
                 textHeightLimit: 9.018348186070783
@@ -11327,9 +12718,9 @@ components:
                 imageDitherStep: 6.778324963048013
             - supportSide: supportSide
               positionId: positionId
-              index: 2
-              entityId: 1
-              markGroupId: 8
+              index: 1
+              entityId: 3
+              markGroupId: 9
               deviceId: deviceId
               entity:
                 textHeightLimit: 9.018348186070783
@@ -11420,10 +12811,10 @@ components:
             name: name
             scannerId: scannerId
             description: description
-            index: 3
+            index: 8
             id: 4
             deviceId: deviceId
-            jobTemplateId: 0
+            jobTemplateId: 9
             expectedMarkDuration: 25:01:01.001
           name: name
           id: 0
@@ -11716,6 +13107,7 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
@@ -11796,6 +13188,7 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
@@ -12061,6 +13454,7 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
@@ -12141,6 +13535,7 @@ components:
             threshold: 6.519181
             debugUrl: debugUrl
             id: 3
+            templateMatchingConfigurationId: 4
             layoutId: 0
             jobTemplateId: 7
             layoutName: layoutName
@@ -13031,6 +14426,7 @@ components:
       - WebhooksServerUnreachable
       - InvalidDataSourceConfiguration
       - TransportResetFailed
+      - SystemShutdown
       type: string
     WorkflowSchedulerStoppedMessage:
       additionalProperties: false
