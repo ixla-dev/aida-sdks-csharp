@@ -120,6 +120,7 @@ All URIs are relative to *http://localhost*
 | [**SaveSettings**](ScannerApi.md#savesettings) | **POST** /aida/v1/scanner/save-settings |  |
 | [**Scale**](ScannerApi.md#scale) | **POST** /aida/v1/scanner/transform/scale |  |
 | [**SelectEntities**](ScannerApi.md#selectentities) | **POST** /aida/v1/scanner/select-entities |  |
+| [**SetCardOrientationCheckConfiguration**](ScannerApi.md#setcardorientationcheckconfiguration) | **POST** /aida/v1/scanner/card-orientation-configuration |  |
 | [**SetEntityPen**](ScannerApi.md#setentitypen) | **POST** /aida/v1/scanner/entities/set-pen |  |
 | [**SetGain**](ScannerApi.md#setgain) | **POST** /aida/v1/scanner/settings/optic/lens/gain |  |
 | [**SetOffset**](ScannerApi.md#setoffset) | **POST** /aida/v1/scanner/settings/optic/lens/offset |  |
@@ -11120,6 +11121,96 @@ catch (ApiException e)
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
  - **Accept**: text/plain, application/json, text/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="setcardorientationcheckconfiguration"></a>
+# **SetCardOrientationCheckConfiguration**
+> void SetCardOrientationCheckConfiguration (CardOrientationCheckConfiguration cardOrientationCheckConfiguration = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Api;
+using Aida.Sdk.Client;
+using Aida.Sdk.Model;
+
+namespace Example
+{
+    public class SetCardOrientationCheckConfigurationExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new ScannerApi(httpClient, config, httpClientHandler);
+            var cardOrientationCheckConfiguration = new CardOrientationCheckConfiguration(); // CardOrientationCheckConfiguration |  (optional) 
+
+            try
+            {
+                apiInstance.SetCardOrientationCheckConfiguration(cardOrientationCheckConfiguration);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ScannerApi.SetCardOrientationCheckConfiguration: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SetCardOrientationCheckConfigurationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    apiInstance.SetCardOrientationCheckConfigurationWithHttpInfo(cardOrientationCheckConfiguration);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ScannerApi.SetCardOrientationCheckConfigurationWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **cardOrientationCheckConfiguration** | [**CardOrientationCheckConfiguration**](CardOrientationCheckConfiguration.md) |  | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: Not defined
 
 
 ### HTTP response details

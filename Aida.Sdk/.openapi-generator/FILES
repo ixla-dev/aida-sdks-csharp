@@ -35,6 +35,7 @@ docs/BoxModuleTransportStatus.md
 docs/BoxModuleTransportStatusChangedNotification.md
 docs/CameraSettingsDto.md
 docs/CameraType.md
+docs/CardOrientationCheckConfiguration.md
 docs/Cartridge.md
 docs/CenterEntitiesDto.md
 docs/ChipEncoderApi.md
@@ -421,6 +422,7 @@ src/Aida.Sdk.Test/Model/BoxModuleTransportStatusChangedNotificationTests.cs
 src/Aida.Sdk.Test/Model/BoxModuleTransportStatusTests.cs
 src/Aida.Sdk.Test/Model/CameraSettingsDtoTests.cs
 src/Aida.Sdk.Test/Model/CameraTypeTests.cs
+src/Aida.Sdk.Test/Model/CardOrientationCheckConfigurationTests.cs
 src/Aida.Sdk.Test/Model/CartridgeTests.cs
 src/Aida.Sdk.Test/Model/CenterEntitiesDtoTests.cs
 src/Aida.Sdk.Test/Model/ChipEncodingConfigurationDtoTests.cs
@@ -796,6 +798,7 @@ src/Aida.Sdk/Model/BoxModuleTransportStatus.cs
 src/Aida.Sdk/Model/BoxModuleTransportStatusChangedNotification.cs
 src/Aida.Sdk/Model/CameraSettingsDto.cs
 src/Aida.Sdk/Model/CameraType.cs
+src/Aida.Sdk/Model/CardOrientationCheckConfiguration.cs
 src/Aida.Sdk/Model/Cartridge.cs
 src/Aida.Sdk/Model/CenterEntitiesDto.cs
 src/Aida.Sdk/Model/ChipEncodingConfigurationDto.cs

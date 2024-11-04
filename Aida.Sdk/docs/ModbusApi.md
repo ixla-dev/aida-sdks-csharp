@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AidaV1ModbusPortLoopReadPost**](ModbusApi.md#aidav1modbusportloopreadpost) | **POST** /aida/v1/modbus/{port}/loop-read |  |
-| [**AidaV1ModbusPortSlaveIdHexRegistersGet**](ModbusApi.md#aidav1modbusportslaveidhexregistersget) | **GET** /aida/v1/modbus/{port}/{slaveId_hex}/registers |  |
+| [**AidaV1ModbusPortSlaveIdHexRegistersGet**](ModbusApi.md#aidav1modbusportslaveidhexregistersget) | **GET** /aida/v1/modbus/{port}/{slaveIdHex}/registers |  |
 | [**GetModbusClients**](ModbusApi.md#getmodbusclients) | **GET** /aida/v1/modbus/clients |  |
-| [**ReadAllRegisters**](ModbusApi.md#readallregisters) | **GET** /aida/v1/modbus/{port}/{slaveId_hex}/registers/all |  |
+| [**ReadAllRegisters**](ModbusApi.md#readallregisters) | **GET** /aida/v1/modbus/{port}/{slaveIdHex}/registers/all |  |
 | [**ReadHoldingRegisters**](ModbusApi.md#readholdingregisters) | **POST** /aida/v1/modbus/{port}/read-holding-registers |  |
 | [**WriteSingleRegister**](ModbusApi.md#writesingleregister) | **POST** /aida/v1/modbus/{port}/write-register |  |
 

@@ -4151,9 +4151,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new InkjetApi(httpClient, config, httpClientHandler);
-            var strongPurgeCount = 56;  // int? |  (optional) 
-            var normalPurgeCount = 56;  // int? |  (optional) 
-            var includeLightCleaning = true;  // bool? |  (optional) 
+            var strongPurgeCount = 1;  // int? |  (optional)  (default to 1)
+            var normalPurgeCount = 1;  // int? |  (optional)  (default to 1)
+            var includeLightCleaning = true;  // bool? |  (optional)  (default to true)
 
             try
             {
@@ -4190,9 +4190,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **strongPurgeCount** | **int?** |  | [optional]  |
-| **normalPurgeCount** | **int?** |  | [optional]  |
-| **includeLightCleaning** | **bool?** |  | [optional]  |
+| **strongPurgeCount** | **int?** |  | [optional] [default to 1] |
+| **normalPurgeCount** | **int?** |  | [optional] [default to 1] |
+| **includeLightCleaning** | **bool?** |  | [optional] [default to true] |
 
 ### Return type
 
@@ -4245,7 +4245,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new InkjetApi(httpClient, config, httpClientHandler);
-            var wipeBefore = true;  // bool? |  (optional) 
+            var wipeBefore = true;  // bool? |  (optional)  (default to true)
 
             try
             {
@@ -4282,7 +4282,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **wipeBefore** | **bool?** |  | [optional]  |
+| **wipeBefore** | **bool?** |  | [optional] [default to true] |
 
 ### Return type
 
@@ -4335,8 +4335,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new InkjetApi(httpClient, config, httpClientHandler);
-            var purgeCount = 56;  // int? |  (optional) 
-            var includeLightCleaning = true;  // bool? |  (optional) 
+            var purgeCount = 1;  // int? |  (optional)  (default to 1)
+            var includeLightCleaning = true;  // bool? |  (optional)  (default to true)
 
             try
             {
@@ -4373,8 +4373,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **purgeCount** | **int?** |  | [optional]  |
-| **includeLightCleaning** | **bool?** |  | [optional]  |
+| **purgeCount** | **int?** |  | [optional] [default to 1] |
+| **includeLightCleaning** | **bool?** |  | [optional] [default to true] |
 
 ### Return type
 

@@ -75,8 +75,9 @@ if ($OpenApiSpecUri -Match '^http')
 
 # set the assembly version for the generated SDK equal to the server version
 $serverVersion = $specificationContent.info.version;
-Write-Host "openapi-generator-cli generate -o $OutputDir -g csharp -c $GeneratorConfigFilePath -i $OpenApiSpecUri --git-user-id=$GitUserId --git-repo-id=$GitRepoId --additional-properties=packageVersion=$serverVersion" 
-openapi-generator-cli generate -o $OutputDir -g csharp -c $GeneratorConfigFilePath -i $OpenApiSpecUri --git-user-id=$GitUserId --git-repo-id=$GitRepoId --additional-properties="packageVersion=$serverVersion"
+$clientVersion = $serverVersion.Split("+")[0];
+Write-Host "openapi-generator-cli generate -o $OutputDir -g csharp -c $GeneratorConfigFilePath -i $OpenApiSpecUri --git-user-id=$GitUserId --git-repo-id=$GitRepoId --additional-properties=packageVersion=$clientVersion" 
+openapi-generator-cli generate -o $OutputDir -g csharp -c $GeneratorConfigFilePath -i $OpenApiSpecUri --git-user-id=$GitUserId --git-repo-id=$GitRepoId --additional-properties="packageVersion=$clientVersion"
 
 # if the outputProject dir does not exists something went wrong with openapi-generator
 if ($(Test-Path $outputProjectDir) -eq $false) 

@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  description: 1.0.713
+  description: 1.0.721-rc.9+f020d61fcb6ef6ebe31e8b3974d429a24c2e10d0
   title: aida
-  version: 1.0.713
+  version: 1.0.721-rc.9+f020d61fcb6ef6ebe31e8b3974d429a24c2e10d0
 servers:
 - url: /
 security:
@@ -3669,6 +3669,7 @@ paths:
         name: strongPurgeCount
         required: false
         schema:
+          default: 1
           format: int32
           type: integer
         style: form
@@ -3677,6 +3678,7 @@ paths:
         name: normalPurgeCount
         required: false
         schema:
+          default: 1
           format: int32
           type: integer
         style: form
@@ -3685,6 +3687,7 @@ paths:
         name: includeLightCleaning
         required: false
         schema:
+          default: true
           type: boolean
         style: form
       responses:
@@ -3701,6 +3704,7 @@ paths:
         name: purgeCount
         required: false
         schema:
+          default: 1
           format: int32
           type: integer
         style: form
@@ -3709,6 +3713,7 @@ paths:
         name: includeLightCleaning
         required: false
         schema:
+          default: true
           type: boolean
         style: form
       responses:
@@ -3725,6 +3730,7 @@ paths:
         name: wipeBefore
         required: false
         schema:
+          default: true
           type: boolean
         style: form
       responses:
@@ -4035,6 +4041,22 @@ paths:
         schema:
           $ref: '#/components/schemas/PrintQuality'
         style: form
+      responses:
+        "200":
+          description: Success
+      tags:
+      - InkjetTest
+  /aida/v1/inkjettest/{port_name}/debug-info:
+    get:
+      operationId: ShowDebugInfo
+      parameters:
+      - explode: false
+        in: path
+        name: port_name
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           description: Success
@@ -4915,7 +4937,7 @@ paths:
           description: Success
       tags:
       - Modbus
-  /aida/v1/modbus/{port}/{slaveId_hex}/registers:
+  /aida/v1/modbus/{port}/{slaveIdHex}/registers:
     get:
       parameters:
       - explode: false
@@ -4927,21 +4949,21 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: slaveId_hex
+        name: slaveIdHex
         required: true
         schema:
           type: string
         style: simple
       - explode: true
         in: query
-        name: start_hex
+        name: startHex
         required: false
         schema:
           type: string
         style: form
       - explode: true
         in: query
-        name: length_hex
+        name: lengthHex
         required: false
         schema:
           type: string
@@ -4961,13 +4983,13 @@ paths:
           description: Success
       tags:
       - Modbus
-  /aida/v1/modbus/{port}/{slaveId_hex}/registers/all:
+  /aida/v1/modbus/{port}/{slaveIdHex}/registers/all:
     get:
       operationId: ReadAllRegisters
       parameters:
       - explode: false
         in: path
-        name: slaveId_hex
+        name: slaveIdHex
         required: true
         schema:
           type: string
@@ -8922,6 +8944,28 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/ScannerAppStateDto'
+          description: Success
+      tags:
+      - Scanner
+  /aida/v1/scanner/card-orientation-configuration:
+    post:
+      operationId: SetCardOrientationCheckConfiguration
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CardOrientationCheckConfiguration'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CardOrientationCheckConfiguration'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CardOrientationCheckConfiguration'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CardOrientationCheckConfiguration'
+      responses:
+        "200":
           description: Success
       tags:
       - Scanner
@@ -13147,6 +13191,23 @@ components:
       - MvBlueFox
       - VideoCapture
       type: string
+    CardOrientationCheckConfiguration:
+      additionalProperties: false
+      example:
+        threshold: 1.4658129
+        templateMatchingConfigurationId: 6
+        jobTemplateId: 0
+      properties:
+        jobTemplateId:
+          format: int32
+          type: integer
+        templateMatchingConfigurationId:
+          format: int32
+          type: integer
+        threshold:
+          format: float
+          type: number
+      type: object
     Cartridge:
       additionalProperties: false
       example:
@@ -16809,6 +16870,77 @@ components:
         id: 9
         autoPosEnabled: true
         updatedAt: 2019-12-10T10:06:50.466318Z
+        cardOrientationTemplateMatchingSettings:
+          acquisitionPresetName: acquisitionPresetName
+          isConfigured: true
+          displayName: displayName
+          description: description
+          threshold: 9.301444243932576
+          searchArea:
+            dataType: dataType
+            x: 3
+            width: 4
+            "y": 2
+            height: 7
+          templateArea:
+            dataType: dataType
+            x: 3
+            width: 4
+            "y": 2
+            height: 7
+          scannerModule:
+            positionId: positionId
+            devices:
+            - deviceType: Camera
+              serialNumber: serialNumber
+              positionId: positionId
+              displayName: displayName
+              name: name
+              description: description
+              model: model
+              id: id
+              moduleId: moduleId
+            - deviceType: Camera
+              serialNumber: serialNumber
+              positionId: positionId
+              displayName: displayName
+              name: name
+              description: description
+              model: model
+              id: id
+              moduleId: moduleId
+            baseAddress: baseAddress
+            displayName: displayName
+            name: name
+            id: id
+            deviceId: deviceId
+          createdAt: 2019-12-10T10:06:50.466318Z
+          warpPerspective: true
+          cameraId: cameraId
+          searchPatternImage:
+            imageFormat: imageFormat
+            file:
+              createdAt: 2019-12-10T10:06:50.466318Z
+              extension: extension
+              filename: filename
+              size: 1
+              displayName: displayName
+              checksum: checksum
+              location: location
+              originalFilename: originalFilename
+              updatedAt: 2019-12-10T10:06:50.466318Z
+            horizontalResolution: 1.1730742
+            verticalResolution: 4.9652185
+            width: 7
+            id: 1
+            url: url
+            fileId: 1
+            height: 6
+          name: name
+          scannerId: scannerId
+          debugUrl: debugUrl
+          id: 7
+          updatedAt: 2019-12-10T10:06:50.466318Z
       properties:
         id:
           format: int32
@@ -16835,6 +16967,8 @@ components:
           type: string
         workingArea:
           $ref: '#/components/schemas/DRectangleDto'
+        cardOrientationTemplateMatchingSettings:
+          $ref: '#/components/schemas/TemplateMatchingConfigurationDto'
         readBackConfiguration:
           $ref: '#/components/schemas/ReadBackConfigurationDto'
         chipEncodingConfiguration:
@@ -23199,6 +23333,77 @@ components:
           id: 9
           autoPosEnabled: true
           updatedAt: 2019-12-10T10:06:50.466318Z
+          cardOrientationTemplateMatchingSettings:
+            acquisitionPresetName: acquisitionPresetName
+            isConfigured: true
+            displayName: displayName
+            description: description
+            threshold: 9.301444243932576
+            searchArea:
+              dataType: dataType
+              x: 3
+              width: 4
+              "y": 2
+              height: 7
+            templateArea:
+              dataType: dataType
+              x: 3
+              width: 4
+              "y": 2
+              height: 7
+            scannerModule:
+              positionId: positionId
+              devices:
+              - deviceType: Camera
+                serialNumber: serialNumber
+                positionId: positionId
+                displayName: displayName
+                name: name
+                description: description
+                model: model
+                id: id
+                moduleId: moduleId
+              - deviceType: Camera
+                serialNumber: serialNumber
+                positionId: positionId
+                displayName: displayName
+                name: name
+                description: description
+                model: model
+                id: id
+                moduleId: moduleId
+              baseAddress: baseAddress
+              displayName: displayName
+              name: name
+              id: id
+              deviceId: deviceId
+            createdAt: 2019-12-10T10:06:50.466318Z
+            warpPerspective: true
+            cameraId: cameraId
+            searchPatternImage:
+              imageFormat: imageFormat
+              file:
+                createdAt: 2019-12-10T10:06:50.466318Z
+                extension: extension
+                filename: filename
+                size: 1
+                displayName: displayName
+                checksum: checksum
+                location: location
+                originalFilename: originalFilename
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              horizontalResolution: 1.1730742
+              verticalResolution: 4.9652185
+              width: 7
+              id: 1
+              url: url
+              fileId: 1
+              height: 6
+            name: name
+            scannerId: scannerId
+            debugUrl: debugUrl
+            id: 7
+            updatedAt: 2019-12-10T10:06:50.466318Z
         entityCount: 0
         isConnected: true
         penSet:
@@ -27158,6 +27363,77 @@ components:
           id: 9
           autoPosEnabled: true
           updatedAt: 2019-12-10T10:06:50.466318Z
+          cardOrientationTemplateMatchingSettings:
+            acquisitionPresetName: acquisitionPresetName
+            isConfigured: true
+            displayName: displayName
+            description: description
+            threshold: 9.301444243932576
+            searchArea:
+              dataType: dataType
+              x: 3
+              width: 4
+              "y": 2
+              height: 7
+            templateArea:
+              dataType: dataType
+              x: 3
+              width: 4
+              "y": 2
+              height: 7
+            scannerModule:
+              positionId: positionId
+              devices:
+              - deviceType: Camera
+                serialNumber: serialNumber
+                positionId: positionId
+                displayName: displayName
+                name: name
+                description: description
+                model: model
+                id: id
+                moduleId: moduleId
+              - deviceType: Camera
+                serialNumber: serialNumber
+                positionId: positionId
+                displayName: displayName
+                name: name
+                description: description
+                model: model
+                id: id
+                moduleId: moduleId
+              baseAddress: baseAddress
+              displayName: displayName
+              name: name
+              id: id
+              deviceId: deviceId
+            createdAt: 2019-12-10T10:06:50.466318Z
+            warpPerspective: true
+            cameraId: cameraId
+            searchPatternImage:
+              imageFormat: imageFormat
+              file:
+                createdAt: 2019-12-10T10:06:50.466318Z
+                extension: extension
+                filename: filename
+                size: 1
+                displayName: displayName
+                checksum: checksum
+                location: location
+                originalFilename: originalFilename
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              horizontalResolution: 1.1730742
+              verticalResolution: 4.9652185
+              width: 7
+              id: 1
+              url: url
+              fileId: 1
+              height: 6
+            name: name
+            scannerId: scannerId
+            debugUrl: debugUrl
+            id: 7
+            updatedAt: 2019-12-10T10:06:50.466318Z
         - chipEncodingConfiguration:
             readerAccessType: PcScGateway
             id: 0
@@ -29123,6 +29399,77 @@ components:
           id: 9
           autoPosEnabled: true
           updatedAt: 2019-12-10T10:06:50.466318Z
+          cardOrientationTemplateMatchingSettings:
+            acquisitionPresetName: acquisitionPresetName
+            isConfigured: true
+            displayName: displayName
+            description: description
+            threshold: 9.301444243932576
+            searchArea:
+              dataType: dataType
+              x: 3
+              width: 4
+              "y": 2
+              height: 7
+            templateArea:
+              dataType: dataType
+              x: 3
+              width: 4
+              "y": 2
+              height: 7
+            scannerModule:
+              positionId: positionId
+              devices:
+              - deviceType: Camera
+                serialNumber: serialNumber
+                positionId: positionId
+                displayName: displayName
+                name: name
+                description: description
+                model: model
+                id: id
+                moduleId: moduleId
+              - deviceType: Camera
+                serialNumber: serialNumber
+                positionId: positionId
+                displayName: displayName
+                name: name
+                description: description
+                model: model
+                id: id
+                moduleId: moduleId
+              baseAddress: baseAddress
+              displayName: displayName
+              name: name
+              id: id
+              deviceId: deviceId
+            createdAt: 2019-12-10T10:06:50.466318Z
+            warpPerspective: true
+            cameraId: cameraId
+            searchPatternImage:
+              imageFormat: imageFormat
+              file:
+                createdAt: 2019-12-10T10:06:50.466318Z
+                extension: extension
+                filename: filename
+                size: 1
+                displayName: displayName
+                checksum: checksum
+                location: location
+                originalFilename: originalFilename
+                updatedAt: 2019-12-10T10:06:50.466318Z
+              horizontalResolution: 1.1730742
+              verticalResolution: 4.9652185
+              width: 7
+              id: 1
+              url: url
+              fileId: 1
+              height: 6
+            name: name
+            scannerId: scannerId
+            debugUrl: debugUrl
+            id: 7
+            updatedAt: 2019-12-10T10:06:50.466318Z
       properties:
         items:
           items:

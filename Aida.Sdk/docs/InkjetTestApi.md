@@ -14,6 +14,7 @@ All URIs are relative to *http://localhost*
 | [**SetMultipassAlgorithm**](InkjetTestApi.md#setmultipassalgorithm) | **POST** /aida/v1/inkjettest/set-multipass-algorithm |  |
 | [**SetPasses**](InkjetTestApi.md#setpasses) | **POST** /aida/v1/inkjettest/set-multipass-n-passes |  |
 | [**SetPrintAlgorithm**](InkjetTestApi.md#setprintalgorithm) | **POST** /aida/v1/inkjettest/set-print-algorithm |  |
+| [**ShowDebugInfo**](InkjetTestApi.md#showdebuginfo) | **GET** /aida/v1/inkjettest/{port_name}/debug-info |  |
 | [**TestWriteCartridges**](InkjetTestApi.md#testwritecartridges) | **POST** /aida/v1/inkjettest/test-cartridges |  |
 | [**WriteCartridge**](InkjetTestApi.md#writecartridge) | **POST** /aida/v1/inkjettest/write-cartridge |  |
 | [**WriteJsonCartridge**](InkjetTestApi.md#writejsoncartridge) | **POST** /aida/v1/inkjettest/write-json-cartridge |  |
@@ -899,6 +900,96 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **value** | **int?** |  | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="showdebuginfo"></a>
+# **ShowDebugInfo**
+> void ShowDebugInfo (string portName)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using Aida.Sdk.Api;
+using Aida.Sdk.Client;
+using Aida.Sdk.Model;
+
+namespace Example
+{
+    public class ShowDebugInfoExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new InkjetTestApi(httpClient, config, httpClientHandler);
+            var portName = "portName_example";  // string | 
+
+            try
+            {
+                apiInstance.ShowDebugInfo(portName);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling InkjetTestApi.ShowDebugInfo: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ShowDebugInfoWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    apiInstance.ShowDebugInfoWithHttpInfo(portName);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling InkjetTestApi.ShowDebugInfoWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **portName** | **string** |  |  |
 
 ### Return type
 
